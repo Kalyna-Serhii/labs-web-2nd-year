@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <title>Lab 3</title>
+    </head>
+
+    <body>
+        <header>
+            <div class="container-header">
+                <div class="header-line">
+                    <div class="header-logo">
+                        <img src="logo.png" alt="Логотип" class="logo">
+                    </div>
+                    <div class="nav">
+                        <a class="nav-item" href="#">Клієнти</a>
+                        <a class="nav-item" href="#">Замовлення</a>
+                        <a class="nav-item" href="#">Продажі</a>
+                        <a class="nav-item" href="#">Маркетинг</a>
+                    </div>
+                    <div class="notification">
+                        <div class="bell">
+                            <a href="#">
+                                <i class="bi bi-bell-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="phone">
+                        <div class="phone-holder">
+                            <div class="phone-img">
+                                <img src="phone.png" alt="Номер телефону">
+                            </div>
+                            <div class="number">
+                                <a href="#" class="num">+38-012-345-67-89</a>
+                            </div>
+                        </div>
+                        <div class="phone-text">
+                            Технічна підтримка
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <a href="#" class="button">
+                            Авторизуватись
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="block">
+                <h2>Блок 1</h2>
+                <table class="table table-dark">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Имя</th>
+                        <th scope="col">Фамилия</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Проблема</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Иван</td>
+                        <td>Иванов</td>
+                        <td>ivan@example.com</td>
+                        <td>Проблема 1</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Петр</td>
+                        <td>Петров</td>
+                        <td>petr@example.com</td>
+                        <td>Проблема 2</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Мария</td>
+                        <td>Сидорова</td>
+                        <td>maria@example.com</td>
+                        <td>Проблема 3</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>Анна</td>
+                        <td>Кузнецова</td>
+                        <td>anna@example.com</td>
+                        <td>Проблема 4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>Алексей</td>
+                        <td>Смирнов</td>
+                        <td>alex@example.com</td>
+                        <td>Проблема 5</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6</th>
+                        <td>Елена</td>
+                        <td>Иванова</td>
+                        <td>elena@example.com</td>
+                        <td>Проблема 6</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">7</th>
+                        <td>Дмитрий</td>
+                        <td>Козлов</td>
+                        <td>dmitry@example.com</td>
+                        <td>Проблема 7</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8</th>
+                        <td>Светлана</td>
+                        <td>Петрова</td>
+                        <td>svetlana@example.com</td>
+                        <td>Проблема 8</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">9</th>
+                        <td>Александра</td>
+                        <td>Сидорова</td>
+                        <td>alexandra@example.com</td>
+                        <td>Проблема 9</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">10</th>
+                        <td>Николай</td>
+                        <td>Кузнецов</td>
+                        <td>nikolay@example.com</td>
+                        <td>Проблема 10</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="block">
+                <h2>Блок 1</h2>
+                <div id="carouselExampleDark" class="carousel carousel-dark slide">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="10000">
+                            <img src="kpi.png" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>First slide label</h5>
+                                <p>Some representative placeholder content for the first slide.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img src="kpi.png" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Second slide label</h5>
+                                <p>Some representative placeholder content for the second slide.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="kpi.png" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Third slide label</h5>
+                                <p>Some representative placeholder content for the third slide.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="block">
+                <h2>Блок 1</h2>
+
+            </div>
+        </div>
+    </body>
+</html>
