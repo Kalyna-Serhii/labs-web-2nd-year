@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,700,500);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,500);
 
 body {
     padding-top: 100px;
@@ -330,74 +330,16 @@ ul.nostyle i {
 }
 
 .download-now {
-    background: #ffffff;
+    background: #ffffff url('../images/change.png') no-repeat right 65px;
     background-size: 30%;
-    margin-top: 3%;
     padding: 30px 0 0;
-}
-
-.col-md-4 > img {
-    max-width: 400px;
-}
-
-.equal-height {
-    display: flex;
-}
-
-.equal-height .col-md-4 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.equal-height {
-    display: flex;
-}
-
-.equal-height .col-md-8 {
-    order: 1;
-}
-
-.equal-height .col-md-4 {
-    order: 2;
-}
-
-@media (max-width: 767px) {
-    .equal-height .col-md-8 {
-        order: 2;
-    }
-
-    .equal-height .col-md-4 {
-        order: 1;
-    }
-
-    .equal-height {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .equal-height .col-md-8 {
-        order: 1;
-    }
-
-    .equal-height .col-md-4 {
-        order: 2;
-        margin-top: 20px;
-    }
-
-    .equal-height .col-md-4 > img {
-        max-width: 400px;
-        width: 100%;
-    }
 }
 
 .download-now p {
     color: #0E0E0E;
     font-size: 16px;
     line-height: 30px;
-    margin: 20px 30px 40px 0;
+    margin: 40px 30px 40px 0;
 }
 
 .download-btn {
@@ -407,7 +349,7 @@ ul.nostyle i {
     display: inline-block;
     font-size: 17px;
     letter-spacing: 2px;
-    margin-bottom: 85px;
+    margin-bottom: 185px;
     padding: 15px 70px;
     transition: all 0.5s ease-in-out;
 
