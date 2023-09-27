@@ -330,74 +330,16 @@ ul.nostyle i {
 }
 
 .download-now {
-    background: #ffffff;
+    background: #ffffff url('../images/change.png') no-repeat right 65px;
     background-size: 30%;
-    margin-top: 3%;
     padding: 30px 0 0;
-}
-
-.col-md-4 > img {
-    max-width: 400px;
-}
-
-.equal-height {
-    display: flex;
-}
-
-.equal-height .col-md-4 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.equal-height {
-    display: flex;
-}
-
-.equal-height .col-md-8 {
-    order: 1;
-}
-
-.equal-height .col-md-4 {
-    order: 2;
-}
-
-@media (max-width: 767px) {
-    .equal-height .col-md-8 {
-        order: 2;
-    }
-
-    .equal-height .col-md-4 {
-        order: 1;
-    }
-
-    .equal-height {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .equal-height .col-md-8 {
-        order: 1;
-    }
-
-    .equal-height .col-md-4 {
-        order: 2;
-        margin-top: 20px;
-    }
-
-    .equal-height .col-md-4 > img {
-        max-width: 400px;
-        width: 100%;
-    }
 }
 
 .download-now p {
     color: #0E0E0E;
     font-size: 16px;
     line-height: 30px;
-    margin: 20px 30px 40px 0;
+    margin: 40px 30px 40px 0;
 }
 
 .download-btn {
@@ -407,7 +349,7 @@ ul.nostyle i {
     display: inline-block;
     font-size: 17px;
     letter-spacing: 2px;
-    margin-bottom: 85px;
+    margin-bottom: 185px;
     padding: 15px 70px;
     transition: all 0.5s ease-in-out;
 
@@ -592,4 +534,37 @@ ul.nostyle i {
 
 #pricing ul:hover {
     transform: scale(1.1);
+}
+
+/*animation*/
+.lds-hourglass {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin-left: 48%;
+}
+.lds-hourglass:after {
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    width: 0;
+    height: 0;
+    box-sizing: border-box;
+    border: 32px solid #1dc0f6;
+    border-color: #1dc0f6 transparent #1dc0f6 transparent;
+    animation: lds-hourglass 1.2s infinite;
+}
+@keyframes lds-hourglass {
+    0% {
+        transform: rotate(0);
+        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+    50% {
+        transform: rotate(900deg);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    100% {
+        transform: rotate(1800deg);
+    }
 }
