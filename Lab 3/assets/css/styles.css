@@ -595,13 +595,13 @@ ul.nostyle i {
 }
 
 /*animation*/
-.lds-hourglass {
-    display: inline-block;
-    position: relative;
-    width: 80px;
-    height: 80px;
-    margin-left: 48%;
+.animation-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
+
 .lds-hourglass:after {
     content: " ";
     display: block;
@@ -610,9 +610,11 @@ ul.nostyle i {
     height: 0;
     box-sizing: border-box;
     border: 32px solid #1dc0f6;
-    border-color: #1dc0f6 transparent #1dc0f6 transparent;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
     animation: lds-hourglass 1.2s infinite;
 }
+
 @keyframes lds-hourglass {
     0% {
         transform: rotate(0);
