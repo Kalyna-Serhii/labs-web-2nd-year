@@ -120,10 +120,30 @@ ul.nostyle i {
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     border-color: #424242;
+    max-height: none;
+    visibility: visible;
 }
 
 .navbar-nav > li > a {
     text-transform: uppercase;
+}
+
+.nav.navbar-nav > li:nth-child(8) {
+    margin-left: 120px;
+}
+
+.nav.navbar-nav > li:nth-child(9) {
+    margin-right: -120px;
+}
+
+@media (max-width: 767px) {
+    .nav.navbar-nav > li:nth-child(8) {
+        margin-left: 0;
+    }
+
+    .nav.navbar-nav > li:nth-child(9) {
+        margin-right: 0;
+    }
 }
 
 @-webkit-keyframes scaleIn {
@@ -630,26 +650,57 @@ ul.nostyle i {
     }
 }
 
-/*end animation*/
 
 .loginForm {
     padding: 50px 0;
     display: flex;
-    justify-content: center;
     text-align: center;
+    justify-content: center;
 }
 
-.loginForm form {
-    max-width:800px;
-    padding:50px 70px;
-    border-radius:10px;
-    box-shadow:4px 4px 15px rgba(0, 0, 0, 0.2);
+.loginForm > form {
+    width: 600px;
+    padding: 50px 70px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
     background-color: white;
 }
 
-.loginForm .item {
-    border-radius:10px;
-    margin-bottom:25px;
-    padding:10px 20px;
+.loginForm .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
+.form-group > label {
+    margin-left: 5px;
+    font-size: 15px;
+    color: #282828;
+}
+
+.loginForm .item {
+    border-radius: 10px;
+    margin-bottom: 25px;
+    padding: 25px 20px;
+}
+
+@media (max-width: 768px) {
+    .loginForm .item {
+        border-radius: 10px;
+        margin-bottom: 25px;
+        padding: 10px 20px;
+    }
+
+    .loginForm > form {
+        width: auto;
+        padding: 50px 70px;
+        border-radius: 10px;
+        box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+        background-color: white;
+    }
+
+    .form-group > label {
+        margin-left: 5px;
+        font-size: 14px;
+    }
+}
