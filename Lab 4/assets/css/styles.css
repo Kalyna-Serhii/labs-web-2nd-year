@@ -73,7 +73,6 @@ hr {
 
 .btn.btn-primary {
     border-radius: 15px;
-
 }
 
 .btn.btn-primary:hover,
@@ -492,6 +491,7 @@ ul.nostyle i {
 }
 
 #footer {
+    flex: 0 0 auto;
     padding-top: 30px;
     padding-bottom: 30px;
     color: #fff;
@@ -650,6 +650,7 @@ ul.nostyle i {
     }
 }
 
+/*end animation*/
 
 .loginForm {
     padding: 50px 0;
@@ -678,7 +679,9 @@ ul.nostyle i {
     color: #282828;
 }
 
-.loginForm .item {
+.loginForm .item,
+.registerForm .item,
+.contactsForm .item {
     border-radius: 10px;
     margin-bottom: 25px;
     padding: 25px 20px;
@@ -688,10 +691,12 @@ ul.nostyle i {
     .loginForm .item {
         border-radius: 10px;
         margin-bottom: 25px;
-        padding: 10px 20px;
+        padding: 10px 10px;
     }
 
-    .loginForm > form {
+    .loginForm > form,
+    .registerForm > form,
+    .contactsForm > form {
         width: auto;
         padding: 50px 70px;
         border-radius: 10px;
@@ -703,4 +708,142 @@ ul.nostyle i {
         margin-left: 5px;
         font-size: 14px;
     }
+}
+
+select {
+    width: 140px;
+    height: 35px;
+    padding: 4px;
+    border-radius:4px;
+    box-shadow: 2px 2px 8px #999;
+    background: #eee;
+    border: none;
+    outline: none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.registerForm {
+    padding: 20px 0;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.registerForm > form {
+    width: 600px;
+    padding: 10px 70px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+
+.registerForm > form > .btn {
+    padding: 5px 25px;
+}
+
+.registerForm .item {
+    margin-bottom: 10px;
+    padding: 1px 15px;
+}
+
+.registerForm > .form-group > label {
+    margin-left: 5px;
+    font-size: 15px;
+    color: #282828;
+    margin-bottom: 5px;
+}
+
+.registerForm  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.contacts {
+    text-align: center;
+}
+
+.contacts > .container > .contacts-header > ul {
+    list-style: none;
+}
+
+.contacts-form {
+    padding: 20px 0;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.contacts-form > form {
+    width: 600px;
+    padding: 10px 70px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+
+.contacts-form > form > .btn {
+    padding: 5px 25px;
+}
+
+.contacts-form > .item {
+    margin-bottom: 10px;
+    padding: 1px 15px;
+}
+
+.contacts-form > form > div > textarea {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.contacts-form > .form-group > label {
+    margin-left: 5px;
+    font-size: 15px;
+    color: #282828;
+    margin-bottom: 5px;
+}
+
+.contactsForm  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/*.FAQ {*/
+/*    min-height: calc(100vh - 94px - 100px);*/
+/*}*/
+
+.FAQ {
+    flex: 1 0 auto;
+}
+
+.FAQ > ol {
+    margin: 3% 3%;
+}
+
+.FAQ > ol > li {
+    margin: 1% 1%;
+}
+
+.FAQ > .title {
+    padding: 20px 0;
+    display: block;
+    text-align: center;
+}
+
+.FAQ > .container > .title {
+    text-align: center;
+}
+
+.FAQ > .container > ol,
+.FAQ > .container > ol > li {
+    padding-top: 15px;
 }
