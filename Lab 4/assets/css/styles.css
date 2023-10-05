@@ -778,12 +778,18 @@ select {
     text-align: center;
 }
 
-.contacts > .container > .contacts-header > ul {
+.contacts-header {
+    text-align: center;
+}
+
+.contacts-header > ul {
     list-style: none;
 }
 
 .contacts-form {
-    padding: 20px 0;
+    /*padding: 20px 0;*/
+    padding-top: 20px;
+    padding-bottom: 50px;
     display: flex;
     text-align: center;
     justify-content: center;
@@ -811,19 +817,19 @@ select {
     margin-bottom: 15px;
 }
 
-.contacts-form > .form-group > label {
-    margin-left: 5px;
-    font-size: 15px;
-    color: #282828;
-    margin-bottom: 5px;
-}
-
-.contactsForm .form-group {
+.contacts-form > form > .form-group{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 15px;
+}
+
+.contacts-form > form .form-group > label {
+    margin-left: 5px;
+    font-size: 15px;
+    color: #282828;
+    margin-bottom: 5px;
 }
 
 .FAQ, .loginForm, .registerForm, .dataTable, .contacts {

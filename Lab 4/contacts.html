@@ -31,10 +31,10 @@
                     <li class="scroll active"><a href="index.html">Home</a></li>
                     <li class="scroll"><a href="index.html#services">Services</a></li>
                     <li class="scroll"><a href="index.html#about">About</a></li>
-                    <li class="scroll"><a href="FAQ.html">FAQ</a></li>
-                    <li class="scroll"><a href="#">Team</a></li>
+                    <li class="scroll"><a href="dataTable.html">Table</a></li>
                     <li class="scroll"><a href="#">Pricing</a></li>
-                    <li class="scroll"><a href="contacts.html">Contact</a></li>
+                    <li class="scroll"><a href="contacts.html">Contacts</a></li>
+                    <li class="scroll"><a href="FAQ.html">FAQ</a></li>
                     <li class="scroll"><a href="auth/login.html">Login</a></li>
                     <li class="scroll"><a href="auth/register.html">Register</a></li>
                 </ul>
@@ -44,32 +44,31 @@
 </header>
 <section class="contacts">
     <div class="container">
+        <div class="contacts-form">
+            <form action="#" method="post">
+                <h2>Напишіть нам</h2>
+                <div class="form-group">
+                    <label for="name">Ім'я:</label>
+                    <input class="form-control item" type="text" id="name" name="name" placeholder="Ім'я">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input class="form-control item" type="email" id="email" name="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Повідомлення:</label>
+                    <textarea class="form-control item" id="message" name="message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg">Відправити</button>
+            </form>
+        </div>
         <div class="contacts-header">
-            <h2>Contacts</h2>
-            <p>Ви можете зв'язатися з нами за наступними контактами:</p>
+            <p>Або Ви можете зв'язатися з нами за наступними контактами:</p>
             <ul>
                 <li><strong>Email:</strong> example@gmail.com</li>
                 <li><strong>Телефон:</strong> +1234567890</li>
                 <li><strong>Адреса:</strong> вул. Зразкова, 12345, місто Зразок</li>
             </ul>
-        </div>
-        <div class="contacts-form">
-            <form action="#" method="post">
-                <h2>Напишіть нам</h2>
-                <div class="form-group">
-                    <label for="name">Ваше ім'я:</label>
-                    <input class="form-control item" type="text" id="name" name="name" placeholder="Ім'я">
-                </div>
-                <div class="form-group">
-                    <label for="email">Ваш Email:</label>
-                    <input class="form-control item" type="email" id="email" name="email" placeholder="Email">
-                </div>
-                <div class="form-group">
-                    <label for="message">Ваше повідомлення:</label>
-                    <textarea class="form-control item" id="message" name="message"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary btn-lg">Відправити</button>
-            </form>
         </div>
     </div>
 </section>
