@@ -652,14 +652,23 @@ ul.nostyle i {
 
 /*end animation*/
 
-.loginForm {
+.loginForm, .registerForm {
     padding: 50px 0;
     display: flex;
     text-align: center;
     justify-content: center;
 }
 
+.registerForm form {
+    width: 600px;
+    padding: 50px 70px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+
 .loginForm > form {
+    max-height: 50vh;
     width: 600px;
     padding: 50px 70px;
     border-radius: 10px;
@@ -688,17 +697,17 @@ ul.nostyle i {
 }
 
 @media (max-width: 768px) {
-    .loginForm .item {
+    .loginForm .item, .registerForm .item {
         border-radius: 10px;
         margin-bottom: 25px;
-        padding: 10px 10px;
+        padding: 20px 10px;
     }
 
     .loginForm > form,
     .registerForm > form,
     .contactsForm > form {
-        width: auto;
-        padding: 50px 70px;
+        width: 90%;
+        padding: 20px 30px;
         border-radius: 10px;
         box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
         background-color: white;
@@ -714,13 +723,13 @@ select {
     width: 140px;
     height: 35px;
     padding: 4px;
-    border-radius:4px;
+    border-radius: 4px;
     box-shadow: 2px 2px 8px #999;
     background: #eee;
     border: none;
     outline: none;
     display: inline-block;
-    -webkit-appearance:none;
+    -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     cursor: pointer;
@@ -734,7 +743,6 @@ select {
 }
 
 .registerForm > form {
-    width: 600px;
     padding: 10px 70px;
     border-radius: 10px;
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
@@ -743,6 +751,7 @@ select {
 
 .registerForm > form > .btn {
     padding: 5px 25px;
+    margin-top: 15px ;
 }
 
 .registerForm .item {
@@ -757,7 +766,7 @@ select {
     margin-bottom: 5px;
 }
 
-.registerForm  .form-group {
+.registerForm .form-group {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -809,7 +818,7 @@ select {
     margin-bottom: 5px;
 }
 
-.contactsForm  .form-group {
+.contactsForm .form-group {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -817,11 +826,7 @@ select {
     margin-bottom: 0;
 }
 
-/*.FAQ {*/
-/*    min-height: calc(100vh - 94px - 100px);*/
-/*}*/
-
-.FAQ {
+.FAQ, .loginForm, .registerForm {
     flex: 1 0 auto;
 }
 
@@ -833,7 +838,7 @@ select {
     margin: 1% 1%;
 }
 
-.FAQ > .title {
+.FAQ > .container > .title {
     padding: 20px 0;
     display: block;
     text-align: center;
@@ -846,4 +851,16 @@ select {
 .FAQ > .container > ol,
 .FAQ > .container > ol > li {
     padding-top: 15px;
+}
+
+#homeFaq, #homeLogin, #homeRegister {
+    padding-top: 100px;
+    background: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    color: #282828;
+    line-height: 26px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
