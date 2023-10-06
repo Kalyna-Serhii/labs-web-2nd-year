@@ -736,7 +736,7 @@ select {
 }
 
 .registerForm {
-    padding: 20px 0;
+    padding: 10px 0;
     display: flex;
     text-align: center;
     justify-content: center;
