@@ -1,0 +1,36 @@
+.task {
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+#task1 {
+    display: flex;
+}
+
+.columnName {
+    width: 10%;
+}
+
+.columnValue {
+    width: 10%;
+}
+
+.columnValue > .row > input {
+    width: 100%;
+}
+
+.row {
+    height: 21px;
+    margin: 10px 0;
+}
+
+p {
+    margin: 0 0;
+}
+
+textarea {
+    display: block;
+    margin-bottom: 10px;
+    width: 30%;
+}
+
