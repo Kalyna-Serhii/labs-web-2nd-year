@@ -1,6 +1,7 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function() {
     task1();
     task3();
+    task4();
     function task1() {
         const lengthElement = document.querySelector('#length');
         const widthElement = document.querySelector('#width');
@@ -52,5 +53,24 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
             }
         });
+    }
+
+    function task4() {
+        const form = document.querySelector('#form4')
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const dateElement = document.querySelector('#date');
+            const resultElement = document.querySelector('#result');
+            const dateValue = dateElement.value;
+            const date = new Date(dateValue);
+            const day = date.getDate();
+            const month = date.getMonth() + 1;
+            const year = date.getFullYear();
+            const a = Math.floor((14 - month) / 12);
+            const y = year - a;
+            const m = month + 12 * a - 2;
+            const dayOfTheWeek = (day + y + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400) + Math.floor((31 * m) / 12)) % 7;
+            resultElement.textContent = dayOfTheWeek;
+        })
     }
 });
