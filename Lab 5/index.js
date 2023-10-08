@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     task1();
+    task2();
     task3();
     task4();
     function task1() {
@@ -31,9 +32,61 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function task2() {
+        const form1 = document.querySelector('#form1');
+        const form2 = document.querySelector('#form2');
+
+        form1.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const messageElement = document.querySelector('#message1');
+            const messagesAreaElement = document.querySelector('.messagesArea')
+            const message = messageElement.value;
+            if (!message) {
+                return;
+            }
+            const divFormGroup = document.createElement('div');
+            divFormGroup.classList.add('message');
+            divFormGroup.classList.add('messageUser1');
+            const pNameUser = document.createElement('p');
+            pNameUser.classList.add('nameUser1');
+            pNameUser.textContent = 'USER1';
+            divFormGroup.appendChild(pNameUser);
+            const pText = document.createElement('p');
+            pText.classList.add('text');
+            pText.textContent = message;
+            divFormGroup.appendChild(pText);
+            messagesAreaElement.appendChild(divFormGroup);
+            form1.reset();
+        })
+
+        form2.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const messageElement = document.querySelector('#message2');
+            const messagesAreaElement = document.querySelector('.messagesArea')
+            const message = messageElement.value;
+            if (!message) {
+                return;
+            }
+            const divFormGroup = document.createElement('div');
+            divFormGroup.classList.add('message');
+            divFormGroup.classList.add('messageUser2');
+            const pNameUser = document.createElement('p');
+            pNameUser.classList.add('nameUser2');
+            pNameUser.textContent = 'USER2';
+            divFormGroup.appendChild(pNameUser);
+            const pText = document.createElement('p');
+            pText.classList.add('text');
+            pText.textContent = message;
+            divFormGroup.appendChild(pText);
+            messagesAreaElement.appendChild(divFormGroup);
+            form2.reset();
+        })
+    }
+
     function task3() {
         const ukrainianInputElement = document.querySelector('#UkrainianInput');
         const transliterationOutputElement = document.querySelector('#transliterationOutput');
+
         ukrainianInputElement.addEventListener('input', function () {
             const ukrainianInput = ukrainianInputElement.value;
             transliterationOutputElement.textContent = translate(ukrainianInput);
@@ -56,7 +109,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function task4() {
-        const form = document.querySelector('#form4')
+        const form = document.querySelector('#form4');
+
         form.addEventListener('submit', function (event) {
             event.preventDefault();
             const dateElement = document.querySelector('#date');
@@ -71,6 +125,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const m = month + 12 * a - 2;
             const dayOfTheWeek = (day + y + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400) + Math.floor((31 * m) / 12)) % 7;
             resultElement.textContent = dayOfTheWeek;
-        })
+        });
     }
 });
