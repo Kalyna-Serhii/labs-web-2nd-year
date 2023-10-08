@@ -126,7 +126,16 @@ document.addEventListener('DOMContentLoaded', function () {
             const y = year - a;
             const m = month + 12 * a - 2;
             const dayOfTheWeek = (day + y + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400) + Math.floor((31 * m) / 12)) % 7;
-            resultElement.textContent = dayOfTheWeek;
+            const days = {
+                0: "Sunday",
+                1: "Monday",
+                2: "Tuesday",
+                3: "Wednesday",
+                4: "Thursday",
+                5: "Friday",
+                6: "Saturday",
+            }
+            resultElement.textContent = days[dayOfTheWeek];
         });
     }
 });
