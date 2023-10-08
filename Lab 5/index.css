@@ -3,9 +3,11 @@
     padding: 20px;
 }
 
+
 #task1 {
     display: flex;
 }
+
 
 #task2 {
     display: flex;
@@ -21,12 +23,12 @@
 }
 
 .user2 {
-    /*justify-content: flex-end;*/
     width: 20%;
     padding: 0 10px;
 }
 
-.form-group > input {
+#form1 > .form-group > input,
+#form2 > .form-group > input{
     width: 100%;
     margin: 10px 0;
 }
@@ -36,7 +38,6 @@
     width: 50%;
     min-height: 500px;
     background-color: white;
-    /*justify-content: center;*/
     padding: 10px;
     margin: 0 15px;
 }
@@ -98,4 +99,3 @@ textarea {
     margin-bottom: 10px;
     width: 30%;
 }
-
