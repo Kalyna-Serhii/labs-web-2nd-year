@@ -1,8 +1,9 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     task1();
     task2();
     task3();
     task4();
+
     function task1() {
         const lengthElement = document.querySelector('#length');
         const widthElement = document.querySelector('#width');
@@ -90,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ukrainianInputElement.addEventListener('input', function () {
             const ukrainianInput = ukrainianInputElement.value;
             transliterationOutputElement.textContent = translate(ukrainianInput);
+
             function translate(text) {
                 const transliterationMap = {
                     'а': 'a', 'б': 'b', 'в': 'v', 'г': 'h', 'ґ': 'g', 'д': 'd', 'е': 'e', 'є': 'ie', 'ж': 'zh',
@@ -101,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     'О': 'O', 'П': 'P', 'Р': 'R', 'С': 'S', 'Т': 'T', 'У': 'U', 'Ф': 'F', 'Х': 'KH', 'Ц': 'TS',
                     'Ч': 'CH', 'Ш': 'SH', 'Щ': 'SHCH', 'Ь': "'", 'Ю': 'IU', 'Я': 'IA'
                 };
-                return text.replace(/[а-яА-ЯґҐєЄіІїЇь]/g, function(char) {
+                return text.replace(/[а-яА-ЯґҐєЄіІїЇь]/g, function (char) {
                     return transliterationMap[char] || char;
                 });
             }
