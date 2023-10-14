@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     inputs.forEach(input => input.addEventListener('input', function () {
         validation(input);
     }))
+    const submitFormButton = document.querySelector('#submitFormButton');
 
     function validation(element) {
         const value = element.value;
@@ -63,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
         newErrorDiv.appendChild(errorText);
         const parentElement = element.parentNode;
         parentElement.appendChild(newErrorDiv);
+        submitFormButton.disabled = true;
     }
 
     function deleteError(element) {
@@ -70,5 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (errorDiv) {
             errorDiv.remove();
         }
+        submitFormButton.disabled = false;
     }
 });

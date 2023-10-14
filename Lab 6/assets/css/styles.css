@@ -990,3 +990,7 @@ label {
 .errorText {
     color: red;
 }
+
+.dataTable {
+    margin-bottom: 20px;
+}
