@@ -1,6 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
     const inputs = document.querySelectorAll(
-        'input[type="text"], input[type="date"], input[type="tel"], input[type="email"], input[type="password"]')
+        'input[type="text"], input[type="tel"], input[type="email"], input[type="password"]')
+
+    function dateValidation () {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate() - 1).padStart(2, '0');
+        const dateElement = document.querySelector('input[type="date"]')
+        dateElement.max = yyyy + '-' + mm + '-' + dd;
+    }
+
+    dateValidation();
+
     inputs.forEach(input => input.addEventListener('input', function () {
         validation(input);
     }))
@@ -9,18 +21,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function validation(element) {
         const value = element.value;
         let error = false;
+
         if (element.type === 'text') {
-            const pattern = /^[A-ZА-ЯҐЄІЇ][a-zа-яґєії`']+$/;
+            const pattern = /^[A-ZА-ЯҐЄІЇ][a-zа-яґєії\- `']+$/;
             if (!pattern.test(value)) {
-                error = true;
-            }
-        }
-        else if(element.type === 'date') {
-            const date = new Date(value);
-            const currentDate = new Date();
-            const timeDifference = currentDate - date;
-            const yearsDifference = timeDifference / (1000 * 60 * 60 * 24 * 365);
-            if (yearsDifference > 120 || yearsDifference < 0) {
                 error = true;
             }
         }
