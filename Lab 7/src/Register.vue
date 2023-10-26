@@ -37,7 +37,8 @@
       </div>
       <div class="form-group" :class="{ 'has-error': errors.phone }">
         <label for="phone">Phone</label>
-        <input class="form-control item" type="tel" id="phone" v-model="formData.phone" @input="validateField('phone')"
+        <input class="form-control item" type="tel" id="phone" v-model.lazy="formData.phone" @input="validateField('phone')"
+               @change="validateField('phone')"
                placeholder="+38(0__)-___-__-__" required>
         <span class="error-message" v-if="errors.phone">Введіть коректний номер телефону</span>
       </div>
@@ -64,7 +65,7 @@
       </div>
       <div class="form-group">
         <label for="file">File</label>
-        <input class="form-control item" type="file" id="file" @change="handleFileChange" placeholder="File">
+        <input class="form-control item" type="file" id="file" placeholder="File">
       </div>
       <button id="submitFormButton" type="submit" class="btn btn-primary btn-lg" :disabled="hasErrors">Register</button>
     </form>
@@ -158,7 +159,7 @@ export default {
         const today = new Date();
         const yyyy = today.getFullYear();
         const mm = String(today.getMonth() + 1).padStart(2, '0');
-        const dd = String(today.getDate() - 1 ).padStart(2, '0');
+        const dd = String(today.getDate() - 1).padStart(2, '0');
         dateElement.max = `${yyyy}-${mm}-${dd}`;
       }
     },
