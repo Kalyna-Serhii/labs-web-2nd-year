@@ -1,6 +1,5 @@
 import {createRouter, createWebHistory} from "vue-router";
-// import MainPage from "@/pages/MainPage.vue";
-import FAQ from "@/pages/FAQ.vue";
+import FAQPage from "@/pages/FAQPage.vue";
 
 const routes = [
     // {
@@ -16,13 +15,20 @@ const routes = [
     // },
     {
         path: '/FAQ',
-        component: FAQ,
+        component: FAQPage,
+        meta: {
+            title: 'FAQ'
+        }
     }
 ]
 
 const router = createRouter({
     routes,
     history: createWebHistory()
+})
+
+router.beforeEach(to => {
+    document.title = to.meta?.title ?? ''
 })
 
 export default router;
