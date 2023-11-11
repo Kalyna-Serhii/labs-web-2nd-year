@@ -1,4 +1,5 @@
 import {createRouter, createWebHistory} from "vue-router";
+import ContactsPage from "@/pages/ContactsPage.vue";
 import FAQPage from "@/pages/FAQPage.vue";
 
 const routes = [
@@ -13,6 +14,13 @@ const routes = [
     //         title: 'Motor Car Wash Repair'
     //     }
     // },
+    {
+        path: '/contacts',
+        component: ContactsPage,
+        meta: {
+            title: 'Contacts'
+        }
+    },
     {
         path: '/FAQ',
         component: FAQPage,

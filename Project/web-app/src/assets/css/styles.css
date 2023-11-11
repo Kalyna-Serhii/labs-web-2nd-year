@@ -7,7 +7,7 @@ body {
     font-weight: 400;
     color: #282828;
     line-height: 26px;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 h1,
@@ -38,7 +38,6 @@ hr {
     border-top: 1px solid #e5e5e5;
     border-bottom: 1px solid #fff;
 }
-
 
 .section-header {
     margin-bottom: 50px;
@@ -490,31 +489,31 @@ ul.nostyle i {
     color: #333;
 }
 
-#footer {
+footer {
     flex: 0 0 auto;
     padding-top: 30px;
     padding-bottom: 30px;
     color: #fff;
     background: #222222;
+    margin-top: auto;
 }
 
-#footer a {
+footer a {
     color: #fff;
 }
 
-#footer a:hover {
+footer a:hover {
     color: #FFA98E;
 }
 
-#footer ul {
+footer ul {
     list-style: none;
     padding: 0;
     margin: 0 -7.5px;
 }
 
-#footer ul > li {
+footer ul > li {
     display: inline-block;
-
     border: 1px solid rgba(255, 255, 255, 0.09);
     padding: 3px 0;
     width: 31px;
