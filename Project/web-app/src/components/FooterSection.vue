@@ -21,26 +21,14 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      gitLink() {
-        return "https://github.com/Kalyna-Serhii/labs-web-2nd-year"
-      },
-      telLink() {
-        return "tel:+1234567890";
-      },
-      emailLink() {
-        return "mailto:example@gmail.com";
-      },
-      vladTelegramLink() {
-        return "https://t.me/futurefkslaves";
-      },
-      serhiiTelegramLink() {
-        return "https://t.me/Serega_10_04";
-      },
-      viberLink() {
-        return "viber://chat?number=+1234567890";
-      },
+      gitLink: "https://github.com/Kalyna-Serhii/labs-web-2nd-year",
+      telLink: "tel:+1234567890",
+      emailLink: "mailto:example@gmail.com",
+      vladTelegramLink: "https://t.me/futurefkslaves",
+      serhiiTelegramLink: "https://t.me/Serega_10_04",
+      viberLink: "viber://chat?number=+1234567890",
     }
   }
 }

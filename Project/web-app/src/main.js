@@ -1,5 +1,5 @@
-// import '@/assets/js/inputmask.min.js';
-// import '@/assets/js/inputMask.js';
+import '@/assets/js/inputmask.min.js';
+import '@/assets/js/inputMask.js';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@/assets/css/styles.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';

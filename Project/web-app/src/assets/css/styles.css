@@ -39,6 +39,10 @@ hr {
     border-bottom: 1px solid #fff;
 }
 
+section {
+    margin-bottom: 30px;
+}
+
 .section-header {
     margin-bottom: 50px;
 }
@@ -442,7 +446,6 @@ ul.nostyle i {
 }
 
 #services {
-    padding: 100px 0 75px;
     background: #FBFBFB;
 }
 
@@ -479,7 +482,6 @@ ul.nostyle i {
 }
 
 #about {
-    padding: 100px 0;
     background: #FFFFFF;
     color: #333;
     font-size: medium;
@@ -546,7 +548,6 @@ footer ul > li {
 }
 
 #pricing {
-    padding: 100px 0 70px;
     background-color: #FBFBFB;
 }
 
@@ -612,18 +613,6 @@ footer ul > li {
 
 #pricing ul:hover {
     transform: scale(1.1);
-}
-
-.rowsPrice {
-    display: flex;
-}
-
-.rowsPrice > .row {
-    flex: 1;
-}
-
-.rowPrice {
-    width: 100%;
 }
 
 /*animation*/

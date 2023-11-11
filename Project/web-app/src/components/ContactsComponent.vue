@@ -24,9 +24,9 @@
       <div class='contacts-header'>
         <p>Або Ви можете зв'язатися з нами за наступними контактами:</p>
         <ul>
-          <li><strong>Email:</strong> {{ email() }} </li>
-          <li><strong>Телефон:</strong> {{ tel() }} </li>
-          <li><strong>Адреса:</strong> {{ address() }} </li>
+          <li><strong>Email:</strong> {{ email }} </li>
+          <li><strong>Телефон:</strong> {{ tel }} </li>
+          <li><strong>Адреса:</strong> {{ address }} </li>
         </ul>
       </div>
     </div>
@@ -45,15 +45,9 @@ export default {
         message: '',
       },
       errors: {},
-      email() {
-        return 'example@gmail.com';
-      },
-      tel() {
-        return '+1234567890';
-      },
-      address() {
-        return 'вул. Зразкова, 12345, місто Зразок';
-      }
+      email: 'example@gmail.com',
+      tel: '+1234567890',
+      address: 'вул. Зразкова, 12345, місто Зразок',
     };
   },
   methods: {
