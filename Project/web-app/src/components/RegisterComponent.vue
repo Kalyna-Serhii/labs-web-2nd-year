@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <h2>Register</h2>
+  <section class="registerForm">
     <form @submit.prevent="submitForm" id="registerForm">
+      <h2>Register</h2>
       <div class="form-group" :class="{ 'has-error': errors.name }">
         <label for="name">Name</label>
         <input class="form-control item" type="text" id="name" v-model="formData.name" @input="validateField('name')"
@@ -69,7 +69,7 @@
       </div>
       <button id="submitFormButton" type="submit" class="btn btn-primary btn-lg" :disabled="hasErrors">Register</button>
     </form>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -177,7 +177,7 @@ export default {
         file: null
       };
       this.errors = {};
-    }
+    },
   }
 };
 </script>
