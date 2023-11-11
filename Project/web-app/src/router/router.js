@@ -1,20 +1,22 @@
-import {createRouter, createWebHistory} from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
+import HomePage from "@/pages/HomePage.vue";
 import ContactsPage from "@/pages/ContactsPage.vue";
 import FAQPage from "@/pages/FAQPage.vue";
+import LoginPage from "@/pages/LoginPage.vue";
 import RegisterPage from "@/pages/RegisterPage.vue";
 
 const routes = [
-    // {
-    //     path: '/',
-    //     redirect: '/main'
-    // },
-    // {
-    //     path: '/main',
-    //     component: MainPage,
-    //     meta: {
-    //         title: 'Motor Car Wash Repair'
-    //     }
-    // },
+    {
+        path: '/',
+        redirect: '/home'
+    },
+    {
+        path: '/home',
+        component: HomePage,
+        meta: {
+            title: 'Motor Car Repair'
+        }
+    },
     {
         path: '/contacts',
         component: ContactsPage,
@@ -27,6 +29,13 @@ const routes = [
         component: FAQPage,
         meta: {
             title: 'FAQ'
+        }
+    },
+    {
+      path: '/login',
+      component: LoginPage,
+        meta: {
+          title: 'Login'
         }
     },
     {

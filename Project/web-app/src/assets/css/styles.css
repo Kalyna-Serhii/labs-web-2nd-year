@@ -614,6 +614,18 @@ footer ul > li {
     transform: scale(1.1);
 }
 
+.rowsPrice {
+    display: flex;
+}
+
+.rowsPrice > .row {
+    flex: 1;
+}
+
+.rowPrice {
+    width: 100%;
+}
+
 /*animation*/
 .animation-wrapper {
     display: flex;
@@ -651,14 +663,14 @@ footer ul > li {
 
 /*end animation*/
 
-.loginForm, .registerForm {
+#loginForm, #registerForm {
     padding: 50px 0;
     display: flex;
     text-align: center;
     justify-content: center;
 }
 
-.registerForm form {
+#registerForm form {
     width: 600px;
     padding: 50px 70px;
     border-radius: 10px;
@@ -666,7 +678,7 @@ footer ul > li {
     background-color: white;
 }
 
-.loginForm > form {
+#loginForm > form {
     max-height: 50vh;
     width: 600px;
     padding: 50px 70px;
@@ -675,7 +687,7 @@ footer ul > li {
     background-color: white;
 }
 
-.loginForm .form-group {
+#loginForm .form-group {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -687,24 +699,24 @@ footer ul > li {
     color: #282828;
 }
 
-.loginForm .item,
-.registerForm .item,
-.contactsForm .item {
+#loginForm .item,
+#registerForm .item,
+#contactsForm .item {
     border-radius: 10px;
     margin-bottom: 25px;
     padding: 25px 20px;
 }
 
 @media (max-width: 768px) {
-    .loginForm .item, .registerForm .item {
+    #loginForm .item, .registerForm .item {
         border-radius: 10px;
         margin-bottom: 25px;
         padding: 20px 10px;
     }
 
-    .loginForm > form,
-    .registerForm > form,
-    .contactsForm > form {
+    #loginForm > form,
+    #registerForm > form,
+    #contactsForm > form {
         width: 90%;
         padding: 20px 30px;
         border-radius: 10px;
@@ -734,38 +746,38 @@ select {
     cursor: pointer;
 }
 
-.registerForm {
+#registerForm {
     padding: 10px 0;
     display: flex;
     text-align: center;
     justify-content: center;
 }
 
-.registerForm > form {
+#registerForm > form {
     padding: 10px 70px;
     border-radius: 10px;
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
     background-color: white;
 }
 
-.registerForm > form > .btn {
+#registerForm > form > .btn {
     padding: 5px 25px;
     margin-top: 15px;
 }
 
-.registerForm .item {
+#registerForm .item {
     margin-bottom: 10px;
     padding: 1px 15px;
 }
 
-.registerForm > .form-group > label {
+#registerForm > .form-group > label {
     margin-left: 5px;
     font-size: 15px;
     color: #282828;
     margin-bottom: 5px;
 }
 
-.registerForm .form-group {
+#registerForm .form-group {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -785,7 +797,7 @@ select {
     list-style: none;
 }
 
-.contacts-form {
+#contacts-form {
     padding-top: 20px;
     padding-bottom: 50px;
     display: flex;
@@ -793,7 +805,7 @@ select {
     justify-content: center;
 }
 
-.contacts-form > form {
+#contacts-form > form {
     width: 600px;
     padding: 10px 70px;
     border-radius: 10px;
@@ -801,21 +813,21 @@ select {
     background-color: white;
 }
 
-.contacts-form > form > .btn {
+#contacts-form > form > .btn {
     padding: 5px 25px;
 }
 
-.contacts-form > .item {
+#contacts-form > .item {
     margin-bottom: 10px;
     padding: 1px 15px;
 }
 
-.contacts-form > form > div > textarea {
+#contacts-form > form > div > textarea {
     width: 100%;
     margin-bottom: 15px;
 }
 
-.contacts-form > form > .form-group{
+#contacts-form > form > .form-group{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -823,14 +835,14 @@ select {
     margin-bottom: 15px;
 }
 
-.contacts-form > form .form-group > label {
+#contacts-form > form .form-group > label {
     margin-left: 5px;
     font-size: 15px;
     color: #282828;
     margin-bottom: 5px;
 }
 
-.FAQ, .loginForm, .registerForm, .dataTable, .contacts {
+.FAQ, #loginForm, #registerForm, .dataTable, .contacts {
     flex: 1 0 auto;
 }
 

@@ -1,6 +1,6 @@
 <template>
-  <section class="registerForm">
-    <form @submit.prevent="submitForm" id="registerForm">
+  <section id="registerForm">
+    <form @submit.prevent='submitForm'>
       <h2>Register</h2>
       <div class="form-group" :class="{ 'has-error': errors.name }">
         <label for="name">Name</label>
