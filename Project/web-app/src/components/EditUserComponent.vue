@@ -7,6 +7,14 @@
           <form class="form-user">
             <div class="row border mb-3">
               <div class="col-3">
+                <label class="form-label">ID</label>
+                <input class="form-control id" name="id" type="number" />
+              </div>
+              <div class="col-3">
+                <label class="form-label">Current package</label>
+                <input class="form-control id" name="current package" type="text" />
+              </div>
+              <div class="col-3">
                 <label class="form-label">Name</label>
                 <input class="form-control" name="name" type="text" />
               </div>
@@ -21,6 +29,10 @@
               <div class="col-3">
                 <label class="form-label">Email</label>
                 <input class="form-control" name="email" type="email" />
+              </div>
+              <div class="col-3">
+                <label class="form-label">Password</label>
+                <input class="form-control" name="password" type="text" />
               </div>
               <div class="col-6">
                 <label class="form-label">Control</label>
@@ -43,6 +55,9 @@ export default {
       const TelMask = new InputMask("+38(099)-999-99-99");
       TelMask.mask(TelElement);
     }
+
+    const idElements = document.querySelectorAll('.id');
+    idElements.forEach(element => element.readOnly = true);
   },
   data() {
     return {
