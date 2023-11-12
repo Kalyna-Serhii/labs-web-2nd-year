@@ -1,5 +1,5 @@
-// import 'jquery/dist/jquery.slim.min.js';
-// import 'bootstrap/dist/js/bootstrap.min.js';
+import '@/assets/js/bootstrap.min';
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '@/assets/css/styles.css';
@@ -10,7 +10,7 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 library.add( fas, fab );
 
-import {createApp} from 'vue';
+import { createApp } from 'vue';
 import App from './App.vue';
 import router from '@/router/router';
 
