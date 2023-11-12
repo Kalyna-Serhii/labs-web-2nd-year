@@ -5,6 +5,7 @@ import FAQPage from "@/pages/FAQPage.vue";
 import LoginPage from "@/pages/LoginPage.vue";
 import RegisterPage from "@/pages/RegisterPage.vue";
 import UsersPage from "@/pages/UsersPage.vue";
+import EditUserPage from "@/pages/EditUserPage.vue";
 
 const routes = [
     {
@@ -51,6 +52,13 @@ const routes = [
         component: UsersPage,
         meta: {
             title: 'Users'
+        }
+    },
+    {
+        path: '/user/:userId',
+        component: EditUserPage,
+        meta: {
+            title: 'Edit user'
         }
     },
 ]

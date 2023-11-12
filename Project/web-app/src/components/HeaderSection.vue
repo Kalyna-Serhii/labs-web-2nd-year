@@ -14,7 +14,7 @@
         <div class='collapse navbar-collapse navbar-right'>
           <ul class='nav navbar-nav'>
             <li><router-link class='scroll' to='/'>Home</router-link></li>
-            <li><router-link class='scroll' to='/'>Services</router-link></li>
+            <li><router-link class='scroll' to='/users'>Users</router-link></li>
             <li><router-link class='scroll' to='/'>About</router-link></li>
             <li><router-link class='scroll' to='/'>Table</router-link></li>
             <li><router-link class='scroll' to='/'>Pricing</router-link></li>

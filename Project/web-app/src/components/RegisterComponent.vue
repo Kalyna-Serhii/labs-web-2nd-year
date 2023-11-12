@@ -74,13 +74,13 @@
 
 <script>
 import bus from '@/event-bus';
-import Inputmask from '@/assets/js/inputmask.min';
+import InputMask from '@/assets/js/inputmask.min';
 
 export default {
   mounted() {
     const TelElement = document.querySelector('#phone');
     if (TelElement) {
-      const TelMask = new Inputmask("+38(099)-999-99-99");
+      const TelMask = new InputMask("+38(099)-999-99-99");
       TelMask.mask(TelElement);
     }
   },

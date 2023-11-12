@@ -17,9 +17,9 @@
           <tbody>
           <tr v-for='(item, index) in usersList' :key='index'>
             <td><span>Name</span> {{ item.name }}</td>
-            <td><span>Name</span> {{ item.surname }}</td>
-            <td><span>Name</span> {{ item.phone }}</td>
-            <td><span>Name</span> {{ item.email }}</td>
+            <td><span>Surname</span> {{ item.surname }}</td>
+            <td><span>Phone</span> {{ item.phone }}</td>
+            <td><span>Email</span> {{ item.email }}</td>
             <td>
               <span>Control</span>
               <router-link to="#"><i class="bi bi-pencil-square"></i></router-link>
@@ -50,7 +50,6 @@ export default {
           phone: '+380123456789',
           email: 'kurach.vlad.lll.kpi.ua',
         },
-
       ],
     }
   }
