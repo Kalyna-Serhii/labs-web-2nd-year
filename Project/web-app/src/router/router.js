@@ -4,6 +4,7 @@ import ContactsPage from "@/pages/ContactsPage.vue";
 import FAQPage from "@/pages/FAQPage.vue";
 import LoginPage from "@/pages/LoginPage.vue";
 import RegisterPage from "@/pages/RegisterPage.vue";
+import UsersPage from "@/pages/UsersPage.vue";
 
 const routes = [
     {
@@ -44,7 +45,14 @@ const routes = [
         meta: {
             title: 'Register'
         }
-    }
+    },
+    {
+        path: '/users',
+        component: UsersPage,
+        meta: {
+            title: 'Users'
+        }
+    },
 ]
 
 const router = createRouter({

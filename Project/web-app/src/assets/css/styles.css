@@ -18,6 +18,7 @@ h5,
 h6 {
     font-weight: 600;
     font-family: 'Raleway', sans-serif;
+    text-align: center;
 }
 
 a {
@@ -497,8 +498,11 @@ footer {
     padding-bottom: 30px;
     color: #fff;
     background: #222222;
-    margin-top: auto;
 }
+
+/*.container {*/
+/*    text-align: center;*/
+/*}*/
 
 footer a {
     color: #fff;
@@ -523,9 +527,13 @@ footer ul > li {
 }
 
 @media only screen and (min-width: 768px) {
-    #footer .social-icons {
+    footer .social-icons {
         float: right;
     }
+}
+
+.social-icons > li {
+    margin-left: 3px;
 }
 
 .form-control {
@@ -872,7 +880,7 @@ select {
 
 .resp-tab {
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
-    margin-top: 5%;
+    margin-top: 20px;
     border-radius: 10px;
     font-weight: normal;
     border: none;
@@ -993,4 +1001,8 @@ label {
 
 .dataTable {
     margin-bottom: 20px;
+}
+
+.bi {
+    margin: 0 3px;
 }
