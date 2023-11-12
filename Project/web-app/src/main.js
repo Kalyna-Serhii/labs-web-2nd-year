@@ -1,7 +1,7 @@
 import '@/assets/js/inputmask.min.js';
 import '@/assets/js/inputMask.js';
 import 'jquery/dist/jquery.slim.min.js';
-// import 'bootstrap/dist/js/bootstrap.min.js';
+import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '@/assets/css/styles.css';
