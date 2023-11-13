@@ -82,9 +82,8 @@
           </div>
         </div>
       </div>
-      <div class='animation-wrapper'>
-        <div class='lds-hourglass'></div>
-      </div>
     </div>
   </section>
 </template>
+<script setup>
+</script>

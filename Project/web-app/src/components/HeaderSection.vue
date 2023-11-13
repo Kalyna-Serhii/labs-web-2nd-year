@@ -13,18 +13,59 @@
         </div>
         <div class='collapse navbar-collapse navbar-right'>
           <ul class='nav navbar-nav'>
-            <li><router-link class='scroll' to='/'>Home</router-link></li>
-            <li><router-link class='scroll' to='/users'>Users</router-link></li>
-            <li><router-link class='scroll' to='/'>About</router-link></li>
-            <li><router-link class='scroll' to='/'>Table</router-link></li>
-            <li><router-link class='scroll' to='/'>Pricing</router-link></li>
-            <li><router-link class='scroll' to='/contacts'>Contacts</router-link></li>
-            <li><router-link class='scroll' to='/FAQ'>FAQ</router-link></li>
-            <li><router-link class='scroll' to='/login'>Login</router-link></li>
-            <li><router-link class='scroll' to='/register'>Register</router-link></li>
+            <li v-for="(button, index) in buttonsList" :key="index">
+              <router-link class='scroll' :to='button.link'> {{ button.name }} </router-link>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
   </header>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      buttonsList: [
+        {
+          link: '/',
+          name: 'Home',
+        },
+        {
+          link: '/users',
+          name: 'Users',
+        },
+        {
+          link: '/',
+          name: 'About',
+        },
+        {
+          link: '/',
+          name: 'Table',
+        },
+        {
+          link: '/',
+          name: 'Pricing',
+        },
+        {
+          link: '/contacts',
+          name: 'Contacts',
+        },
+        {
+          link: '/FAQ',
+          name: 'FAQ',
+        },
+        {
+          link: '/login',
+          name: 'Login',
+        },
+        {
+          link: '/register',
+          name: 'Register',
+        },
+      ]
+    }
+  }
+}
+</script>
