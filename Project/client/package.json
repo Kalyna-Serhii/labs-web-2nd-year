@@ -1,9 +1,9 @@
 {
   "name": "client",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
@@ -31,6 +31,11 @@
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kalyna-Serhii/labs-web-2nd-year/tree/main/Project"
+  },
+  "proxy": "http://127.0.0.1:8082",
   "eslintConfig": {
     "root": true,
     "env": {
