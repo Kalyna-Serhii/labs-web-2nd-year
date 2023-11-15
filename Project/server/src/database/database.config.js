@@ -14,7 +14,7 @@ const sequelize = new Sequelize('webapp', 'postgres', '1234', {
     console.error('Не вдалося підключитися до бази даних:', error);
   }
   try {
-    await sequelize.sync({ alter: true, paranoid: true });
+    await sequelize.sync({ alter: true });
     // await sequelize.sync({ force: true, paranoid: true });
     // Примусово оновлює БД, ФОРМАТУЮЧИ її
   } catch (error) {
@@ -22,4 +22,4 @@ const sequelize = new Sequelize('webapp', 'postgres', '1234', {
   }
 })();
 
-export { sequelize, DataTypes };
+export { DataTypes, sequelize };

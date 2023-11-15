@@ -1,21 +1,20 @@
-import { DataTypes, sequelize } from '../database/database.config.js';
+import {DataTypes, sequelize} from '../database/database.config.js';
 
 const PackageModel = sequelize.define(
     'Package',
     {
         id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-            required: true,
-        },
-        description: {
-            type: DataTypes.TEXT,
+            allowNull: false,
         },
         name: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        description: {
+            type: DataTypes.TEXT,
         },
         price: {
             type: DataTypes.INTEGER,
