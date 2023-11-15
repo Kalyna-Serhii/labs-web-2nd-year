@@ -1,4 +1,4 @@
-# web-app
+# client
 
 ## Project setup
 ```
