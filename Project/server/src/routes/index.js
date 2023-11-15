@@ -1,3 +1,3 @@
-import authRouter from './auth-router.js';
+import packageRouter from './package-router.js';
 
-export { authRouter };
+export { packageRouter };
