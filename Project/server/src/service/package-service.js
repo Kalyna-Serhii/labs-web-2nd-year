@@ -27,9 +27,12 @@ const PackageService = {
 
     async getPackageById(id) {
         const Package = await packageModel.findOne({where: {id}});
-        const packageServicesIds = await servicePackageModel.findAll({ where: { PackageId: Package.id } });
+        if (!Package) {
+            throw ApiError.BadRequest('Package not found');
+        }
+        const packageServicesIds = await servicePackageModel.findAll({where: {PackageId: Package.id}});
         const services = await Promise.all(packageServicesIds.map(async service => {
-            const serviceDetails = await serviceModel.findOne({ where: { id: service.ServiceId } });
+            const serviceDetails = await serviceModel.findOne({where: {id: service.ServiceId}});
             return serviceDetails ? serviceDetails.get() : null;
         }));
         const resultPackage = {
@@ -42,15 +45,8 @@ const PackageService = {
     async createPackage(body) {
         const {id, name, description, price, idServices} = body;
         const newPackage = await packageModel.create({id, name, description, price});
-
-        const services = await serviceModel.findAll({
-            where: {
-                id: idServices
-            }
-        });
-
+        const services = await serviceModel.findAll({where: {id: idServices}});
         await newPackage.addServices(services);
-
         return newPackage;
     },
 
