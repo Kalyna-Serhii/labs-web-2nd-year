@@ -1,4 +1,3 @@
-import ApiError from '../exceptions/api-error.js';
 import packageService from "../service/package-service.js";
 
 const packageController = {
@@ -6,6 +5,15 @@ const packageController = {
         try {
             const packages = await packageService.getPackages();
             return res.status(200).json(packages);
+        } catch (error) {
+            next(error);
+        }
+    },
+
+    async getPackageById(req, res, next) {
+        try {
+            const Package = await packageService.getPackageById(req.params.id);
+            return res.status(200).json(Package);
         } catch (error) {
             next(error);
         }
@@ -22,7 +30,7 @@ const packageController = {
 
     async updatePackage(req, res, next) {
         try {
-            const updatedPackage = await packageService.updatePackage(req.params, req.body);
+            const updatedPackage = await packageService.updatePackage(req.params.id, req.body);
             return res.status(200).json(updatedPackage);
         } catch (error) {
             next(error);
@@ -31,7 +39,7 @@ const packageController = {
 
     async deletePackage(req, res, next) {
         try {
-            await packageService.deletePackage(req.params);
+            await packageService.deletePackage(req.params.id);
             return res.status(204).send();
         } catch (error) {
             next(error);

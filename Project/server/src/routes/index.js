@@ -1,3 +1,4 @@
+import serviceRouter from "./service-router.js";
 import packageRouter from './package-router.js';
 
-export { packageRouter };
+export { serviceRouter, packageRouter };
