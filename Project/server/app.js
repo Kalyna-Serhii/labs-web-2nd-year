@@ -16,5 +16,5 @@ app.use('/api', serviceRouter, packageRouter);
 app.use(errorMiddleware);
 
 app.listen(PORT, () => {
-    console.log(`Server listens http://${HOST}:${PORT}`);
+    console.log(`Server listens http://${HOST}:${PORT}/`);
 });

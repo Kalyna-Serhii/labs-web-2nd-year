@@ -11,7 +11,7 @@ const servicePackageModel = sequelize.define(
     },
 );
 
-serviceModel.belongsToMany(packageModel, {through: servicePackageModel});
 packageModel.belongsToMany(serviceModel, {through: servicePackageModel});
+serviceModel.belongsToMany(packageModel, {through: servicePackageModel});
 
 export default servicePackageModel;

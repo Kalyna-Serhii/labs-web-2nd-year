@@ -47,7 +47,11 @@ const PackageService = {
         const newPackage = await packageModel.create({id, name, description, price});
         const services = await serviceModel.findAll({where: {id: idServices}});
         await newPackage.addServices(services);
-        return newPackage;
+        const resultPackage = {
+            ...newPackage.get(),
+            services
+        };
+        return resultPackage;
     },
 
     async updatePackage(id, body) {
@@ -55,13 +59,19 @@ const PackageService = {
         if (!oldPackage) {
             throw ApiError.BadRequest('Package not found');
         }
-        const {name, description, price} = body;
+        const {name, description, price, idServices} = body;
         const updatedFields = {};
         updatedFields.name = name;
         updatedFields.description = description;
         updatedFields.price = price;
         const updatedPackage = await oldPackage.update(updatedFields);
-        return updatedPackage;
+        const services = await serviceModel.findAll({where: {id: idServices}});
+        await updatedPackage.addServices(services);
+        const resultPackage = {
+            ...updatedPackage.get(),
+            services
+        };
+        return resultPackage;
     },
 
     async deletePackage(id) {
