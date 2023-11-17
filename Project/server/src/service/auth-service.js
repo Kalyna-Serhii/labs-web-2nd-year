@@ -7,6 +7,12 @@ import ApiError from '../exceptions/api-error.js';
 const AuthService = {
     async register(body) {
         const {name, gender, phone, password, email, role} = body;
+
+        const userWithSamePhone = await UserModel.findOne({where: {phone}});
+        if (userWithSamePhone && userWithSamePhone.id !== parseInt(id)) {
+            throw ApiError.BadRequest(`User with ${phone} phone number already exists`);
+        }
+
         const hashedPassword = await bcrypt.hash(password, 3);
         const newUser = await UserModel.create({
             name,
