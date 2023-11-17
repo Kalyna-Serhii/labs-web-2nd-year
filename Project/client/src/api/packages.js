@@ -1,34 +1,45 @@
-import fetchInstance from './fetchInstance';
+import axiosInstance from "@/api/axiosInstance";
 
-const packages = {
+const packagesAxios = {
     async getPackages() {
         try {
-            return await fetchInstance.get('/packages');
+            return await axiosInstance.get('/packages');
         } catch (error) {
-            throw new Error('Failed to receive packages: ' + error.message);
+            throw new Error(`Failed to receive packages: ${error.message}`);
         }
     },
+
+    async getPackageById(packageId) {
+        try {
+            return await axiosInstance.get(`/package/${packageId}`);
+        } catch (error) {
+            throw new Error(`Failed to receive package: ${error.message}`);
+        }
+    },
+
     async createPackage(body) {
         try {
-            return await fetchInstance.post('/package', body);
+            return await axiosInstance.post('/package', body);
         } catch (error) {
-            throw new Error('Failed to create package');
+            throw new Error(`Failed to create package: ${error.message}`);
         }
     },
+
     async updatePackage(packageId, body) {
         try {
-            return await fetchInstance.patch(`/package/${packageId}`, body);
+            return await axiosInstance.patch(`/package/${packageId}`, body);
         } catch (error) {
-            throw new Error('Failed to update package');
+            throw new Error(`Failed to update package: ${error.message}`);
         }
     },
+
     async deletePackage(packageId) {
         try {
-            await fetchInstance.delete(`/package/${packageId}`);
+            await axiosInstance.delete(`/package/${packageId}`);
         } catch (error) {
-            throw new Error('Failed to delete package');
+            throw new Error(`Failed to delete package: ${error.message}`);
         }
     },
 };
 
-export default packages;
+export default packagesAxios;

@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt';
 import UserModel from '../models/user-model.js';
+import TokenModel from "../models/token-model.js";
 import ApiError from '../exceptions/api-error.js';
 
 const UserService = {
@@ -52,6 +53,10 @@ const UserService = {
         const user = await UserModel.findOne({where: {id}});
         if (!user) {
             throw ApiError.BadRequest(`No user found with id = ${id}`);
+        }
+        const userToken = await TokenModel.findOne({where: {userId: id}});
+        if (userToken) {
+            await userToken.destroy();
         }
         await user.destroy();
     },

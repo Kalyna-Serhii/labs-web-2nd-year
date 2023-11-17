@@ -1,8 +1,10 @@
-import fetchInstance from "./fetchInstance";
+import axiosInstance from "./axiosInstance";
+import users from "./users";
 import packages from "./packages";
 
 const api = {
-    fetchInstance,
+    axiosInstance,
+    users,
     packages,
 };
 
