@@ -55,7 +55,7 @@ const routes = [
         }
     },
     {
-        path: '/users/:userId',
+        path: '/user/:userId',
         component: EditUserPage,
         meta: {
             title: 'Edit user'
