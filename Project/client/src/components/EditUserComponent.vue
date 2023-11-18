@@ -2,13 +2,13 @@
   <section>
     <h2>Edit user</h2>
     <div class="container">
-      <div class="table" id="users">
-        <div id="userRow">
-          <form class="form-user" @submit.prevent="submitForm">
+      <div>
+        <div>
+          <form ref="form" @submit.prevent="submitForm">
             <div class="row border mb-3">
               <div class="col-3">
                 <label class="form-label">ID</label>
-                <input class="form-control id" type="number" :value="user.id"/>
+                <input class="form-control" ref="id" type="number" :value="user.id"/>
               </div>
               <div class="col-3">
                 <label class="form-label">Name</label>
@@ -20,7 +20,8 @@
               </div>
               <div class="col-3">
                 <label class="form-label">Phone</label>
-                <input class="form-control" name="phone" type="tel" id="phone" :value="user.phone"/>
+                <input v-model.lazy="phone" @input="initInputMask()" ref="phone" class="form-control" name="phone"
+                       type="tel" id="phone"/>
               </div>
               <div class="col-3">
                 <label class="form-label">Email</label>
@@ -32,8 +33,14 @@
               </div>
               <div class="col-6">
                 <label class="form-label">Control</label>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-small btn-primary">
                   <i class="bi bi-check-circle-fill"></i> Save
+                </button>
+              </div>
+              <div class="col-6">
+                <label class="form-label"></label>
+                <button type="button" @click="deleteUser(user.id)" class="btn btn-small btn-primary">
+                  <i class="bi bi-trash"></i> Delete
                 </button>
               </div>
             </div>
@@ -51,14 +58,14 @@ import InputMask from "@/assets/js/inputmask.min";
 export default {
   methods: {
     initInputMask() {
-      const TelElement = document.querySelector('#phone');
-      if (TelElement) {
+      const telElement = this.$refs.phone;
+      if (telElement) {
         const TelMask = new InputMask("+38(099)-999-99-99");
-        TelMask.mask(TelElement);
+        TelMask.mask(telElement);
       }
 
-      const idElements = document.querySelectorAll('.id');
-      idElements.forEach(element => element.readOnly = true);
+      const id = this.$refs.id;
+      id.readOnly = true;
     },
 
     getUserIdFromRoute() {
@@ -68,13 +75,15 @@ export default {
     async getUserById(userId) {
       try {
         this.user = await api.users.getUserById(userId);
+        this.phone = this.user.phone;
+        this.initInputMask();
       } catch (error) {
         alert(error);
       }
     },
 
     async submitForm() {
-      const form = document.querySelector('.form-user');
+      const form = this.$refs.form;
       const userId = this.user.id;
       const formBody = this.getFormBody(form);
       try {
@@ -95,17 +104,27 @@ export default {
       });
       return formBody;
     },
+
+    async deleteUser(id) {
+      try {
+        await api.users.deleteUser(id);
+        this.$router.push('/users');
+      } catch (error) {
+        alert(error);
+      }
+    },
   },
 
   async mounted() {
-    this.initInputMask();
     const userId = this.getUserIdFromRoute();
     await this.getUserById(userId);
+    this.initInputMask()
   },
 
   data() {
     return {
       user: [],
+      phone: '',
     }
   }
 }

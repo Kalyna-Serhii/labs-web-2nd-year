@@ -26,8 +26,8 @@
             <td><span>Role</span> {{ user.role }} </td>
             <td>
               <span>Control</span>
-              <router-link :to="'/user/'+user.id"><i class="bi bi-pencil-square"></i></router-link>
-              <router-link to="#"><i class="bi bi-trash-fill"></i></router-link>
+              <button @click="toEditPage(user.id)" class="btn btn-small btn-primary"><i class="bi bi-pencil-square"></i></button>
+              <button @click="deleteUser(user.id)" class="btn btn-small btn-primary"><i class="bi bi-trash"></i></button>
             </td>
           </tr>
           </tbody>
@@ -54,7 +54,24 @@ export default {
       } catch (error) {
         alert(error);
       }
-    }
+    },
+
+    async toEditPage(id) {
+      try {
+        this.$router.push(`/user/${id}`);
+      } catch (error) {
+        alert(error);
+      }
+    },
+
+    async deleteUser(id) {
+      try {
+        await api.users.deleteUser(id);
+        await this.getUsers();
+      } catch (error) {
+        alert(error);
+      }
+    },
   },
 
   async mounted() {

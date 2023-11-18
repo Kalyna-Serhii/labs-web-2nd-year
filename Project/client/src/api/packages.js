@@ -5,7 +5,7 @@ const packagesAxios = {
         try {
             return await axiosInstance.get('/packages');
         } catch (error) {
-            throw new Error(`Failed to receive packages: ${error.message}`);
+            throw new Error(`Failed to receive packages: ${error.response.data.message || error.message}`);
         }
     },
 
@@ -13,7 +13,7 @@ const packagesAxios = {
         try {
             return await axiosInstance.get(`/package/${packageId}`);
         } catch (error) {
-            throw new Error(`Failed to receive package: ${error.message}`);
+            throw new Error(`Failed to receive package: ${error.response.data.message || error.message}`);
         }
     },
 
@@ -21,7 +21,7 @@ const packagesAxios = {
         try {
             return await axiosInstance.post('/package', body);
         } catch (error) {
-            throw new Error(`Failed to create package: ${error.message}`);
+            throw new Error(`Failed to create package: ${error.response.data.message || error.message}`);
         }
     },
 
@@ -29,7 +29,7 @@ const packagesAxios = {
         try {
             return await axiosInstance.patch(`/package/${packageId}`, body);
         } catch (error) {
-            throw new Error(`Failed to update package: ${error.message}`);
+            throw new Error(`Failed to update package: ${error.response.data.message || error.message}`);
         }
     },
 
@@ -37,7 +37,7 @@ const packagesAxios = {
         try {
             await axiosInstance.delete(`/package/${packageId}`);
         } catch (error) {
-            throw new Error(`Failed to delete package: ${error.message}`);
+            throw new Error(`Failed to delete package: ${error.response.data.message || error.message}`);
         }
     },
 };
