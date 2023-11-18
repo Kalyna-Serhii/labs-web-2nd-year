@@ -45,12 +45,13 @@ const UserService = {
         if (userWithSamePhone && userWithSamePhone.id !== parseInt(id)) {
             throw ApiError.BadRequest(`User with ${phone} phone number already exists`);
         }
+        const hashedPassword = await bcrypt.hash(password, 3);
 
         const updatedFields = {};
         updatedFields.name = name;
         updatedFields.gender = gender;
         updatedFields.phone = phone;
-        updatedFields.password = password;
+        updatedFields.password = hashedPassword;
         updatedFields.email = email;
         updatedFields.role = role;
         const updatedUser = await user.update(updatedFields);

@@ -29,7 +29,6 @@ const usersAxios = {
         try {
             return await axiosInstance.patch(`/user/${userId}`, body);
         } catch (error) {
-            console.log(error.response.data.message || error.message)
             throw new Error(`Failed to update user: ${error.response.data.message || error.message}`);
         }
     },

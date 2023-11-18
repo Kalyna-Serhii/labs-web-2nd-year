@@ -5,6 +5,7 @@ const AuthController = {
     async register(req, res, next) {
         try {
             const newUser = await authService.register(req.body);
+            res.cookie('refreshToken', newUser.refreshToken, {maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true});
             return res.status(201).json(newUser);
         } catch (error) {
             next(error);
@@ -14,6 +15,7 @@ const AuthController = {
     async login(req, res, next) {
         try {
             const user = await authService.login(req.body);
+            res.cookie('refreshToken', user.refreshToken, {maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true});
             return res.status(200).json({
                 accessToken: user.accessToken,
                 refreshToken: user.refreshToken,
@@ -25,11 +27,8 @@ const AuthController = {
 
     async logout(req, res, next) {
         try {
-            const {refreshToken} = req.body;
-            if (!refreshToken) {
-                return next(ApiError.UnauthorizedError());
-            }
-            await authService.logout(refreshToken);
+            await authService.logout(req.cookies.refreshToken);
+            res.clearCookie('refreshToken');
             return res.status(204).send();
         } catch (error) {
             next(error);
@@ -38,11 +37,7 @@ const AuthController = {
 
     async refresh(req, res, next) {
         try {
-            const {refreshToken} = req.body;
-            if (!refreshToken) {
-                return next(ApiError.UnauthorizedError());
-            }
-            const user = await authService.refresh(refreshToken, res);
+            const user = await authService.refresh(req.cookies.refreshToken);
             return res.status(200).json({
                 accessToken: user.accessToken,
                 refreshToken: user.refreshToken,
