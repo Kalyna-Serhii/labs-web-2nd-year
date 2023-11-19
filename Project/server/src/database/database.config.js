@@ -1,9 +1,15 @@
 import { DataTypes, Sequelize } from 'sequelize';
 
-const sequelize = new Sequelize('webapp', 'postgres', '1234', {
-  host: 'localhost',
+const NAME = process.env.DATABASE_NAME;
+const USERNAME = process.env.DATABASE_USERNAME;
+const PASSWORD = process.env.DATABASE_PASSWORD;
+const HOST = process.env.DATABASE_HOST;
+const PORT = process.env.DATABASE_PORT;
+
+const sequelize = new Sequelize(NAME, USERNAME, PASSWORD, {
+  host: HOST,
   dialect: 'postgres',
-  port: 5432,
+  port: PORT,
   logging: false, // відключення виведення SQL запитів до терміналу
 });
 

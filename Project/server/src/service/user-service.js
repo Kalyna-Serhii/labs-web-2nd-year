@@ -36,7 +36,7 @@ const UserService = {
     },
 
     async updateUser(id, body) {
-        const {name, gender, phone, password, email, role} = body;
+        const {name, gender, phone, email, role} = body;
         const user = await UserModel.findOne({where: {id}});
         if (!user) {
             throw ApiError.BadRequest(`No user found with ${phone} phone number`);
@@ -45,13 +45,11 @@ const UserService = {
         if (userWithSamePhone && userWithSamePhone.id !== parseInt(id)) {
             throw ApiError.BadRequest(`User with ${phone} phone number already exists`);
         }
-        const hashedPassword = await bcrypt.hash(password, 3);
 
         const updatedFields = {};
         updatedFields.name = name;
         updatedFields.gender = gender;
         updatedFields.phone = phone;
-        updatedFields.password = hashedPassword;
         updatedFields.email = email;
         updatedFields.role = role;
         const updatedUser = await user.update(updatedFields);

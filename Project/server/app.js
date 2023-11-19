@@ -6,8 +6,8 @@ import cookieParser from 'cookie-parser';
 import errorMiddleware from './src/middlewares/error-middleware.js';
 import {authRouter, userRouter, serviceRouter, packageRouter} from './src/routes/index.js';
 
-const HOST = 'localhost';
-const PORT = 8082;
+const HOST = process.env.SERVER_HOST;
+const PORT = process.env.SERVER_PORT;
 
 const app = express();
 
