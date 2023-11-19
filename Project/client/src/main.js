@@ -13,10 +13,12 @@ library.add( fas, fab );
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from '@/router/router';
+import store from '@/store/store';
 
 
 const app = createApp(App)
 app
     .component('font-awesome-icon', FontAwesomeIcon)
     .use(router)
+    .use(store)
     .mount('#app');

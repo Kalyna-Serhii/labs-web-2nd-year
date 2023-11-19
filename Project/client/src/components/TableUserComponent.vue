@@ -17,7 +17,7 @@
           </thead>
 
           <tbody>
-          <tr v-for='(user, index) in users' :key='index'>
+          <tr v-for='(user, index) in $store.getters.getUsers' :key='index'>
             <td><span>ID</span> {{ user.id }} </td>
             <td><span>Name</span> {{ user.name }} </td>
             <td><span>Gender</span> {{ user.gender }} </td>
@@ -39,48 +39,52 @@
 </template>
 
 <script>
-import api from '../api';
 export default {
-  methods: {
-    sortUsersById(users) {
-      return users.sort((a, b) => a.id - b.id);
-    },
-
-    async getUsers() {
-      try {
-        const users = await api.users.getUsers();
-        const sortedUsersById = this.sortUsersById(users);
-        this.users = sortedUsersById;
-      } catch (error) {
-        alert(error);
-      }
-    },
-
-    async toEditPage(id) {
-      try {
-        this.$router.push(`/user/${id}`);
-      } catch (error) {
-        alert(error);
-      }
-    },
-
-    async deleteUser(id) {
-      try {
-        await api.users.deleteUser(id);
-        await this.getUsers();
-      } catch (error) {
-        alert(error);
-      }
-    },
-  },
-
-  async mounted() {
-    await this.getUsers();
-  },
   data() {
     return {
       users: [],
-    };
+    }
   },
-};
+  mounted() {
+    this.$store.dispatch('fetchUsers');
+  }
+}
 </script>
+
+
+<!--<script>-->
+<!--import api from '../api';-->
+<!--export default {-->
+<!--  methods: {-->
+<!--    sortUsersById(users) {-->
+<!--      return users.sort((a, b) => a.id - b.id);-->
+<!--    },-->
+
+<!--    async toEditPage(id) {-->
+<!--      try {-->
+<!--        this.$router.push(`/user/${id}`);-->
+<!--      } catch (error) {-->
+<!--        alert(error);-->
+<!--      }-->
+<!--    },-->
+
+<!--    async deleteUser(id) {-->
+<!--      try {-->
+<!--        await api.users.deleteUser(id);-->
+<!--        await this.getUsers();-->
+<!--      } catch (error) {-->
+<!--        alert(error);-->
+<!--      }-->
+<!--    },-->
+<!--  },-->
+
+<!--  async mounted() {-->
+<!--    await this.getUsers();-->
+<!--  },-->
+<!--  data() {-->
+<!--    return {-->
+<!--      users: [],-->
+<!--    };-->
+<!--  },-->
+<!--};-->
+<!--</script>-->
