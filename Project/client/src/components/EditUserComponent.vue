@@ -20,7 +20,7 @@
               </div>
               <div class="col-3">
                 <label class="form-label">Phone</label>
-                <input v-model.lazy="phone" ref="phone" class="form-control" name="phone"
+                <input v-model="phone" ref="phone" class="form-control" name="phone"
                        type="tel" id="phone"/>
               </div>
               <div class="col-3">

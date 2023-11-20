@@ -5,7 +5,7 @@ const usersApi = {
         try {
             return await $api.get('/users');
         } catch (error) {
-            alert(`Failed to receive users: ${error}`);
+            alert(`Failed to receive users: ${error.response.data.message || error}`);
         }
     },
 
@@ -13,7 +13,7 @@ const usersApi = {
         try {
             return await $api.get(`/user/${userId}`);
         } catch (error) {
-            alert(`Failed to receive user: ${error}`);
+            alert(`Failed to receive user: ${error.response.data.message || error}`);
         }
     },
 
@@ -21,7 +21,7 @@ const usersApi = {
         try {
             return await $api.post('/user', body);
         } catch (error) {
-            alert(`Failed to create user: ${error}`);
+            alert(`Failed to create user: ${error.response.data.message || error}`);
         }
     },
 
@@ -29,7 +29,7 @@ const usersApi = {
         try {
             return await $api.patch(`/user/${userId}`, body);
         } catch (error) {
-            alert(`Failed to update user: ${error}`);
+            alert(`Failed to update user: ${error.response.data.message || error}`);
         }
     },
 
@@ -37,7 +37,7 @@ const usersApi = {
         try {
             await $api.delete(`/user/${userId}`);
         } catch (error) {
-            alert(`Failed to delete user: ${error}`);
+            alert(`Failed to delete user: ${error.response.data.message || error}`);
         }
     },
 };
