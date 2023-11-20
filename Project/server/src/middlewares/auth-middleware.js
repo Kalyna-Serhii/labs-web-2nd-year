@@ -35,11 +35,7 @@ const authMiddleware = {
 
 function authorizationCheck(req) {
     try {
-        const authorizationHeader = req.headers.authorization;
-        if (!authorizationHeader) {
-            return;
-        }
-        const accessToken = authorizationHeader.split(' ')[1];
+        const accessToken = req.cookies.accessToken;
         if (!accessToken) {
             return;
         }

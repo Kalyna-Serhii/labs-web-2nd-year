@@ -8,8 +8,8 @@ class ApiInstance {
     async request(url, options = {}) {
         const response = await $axios({
             url: `${this.serverURL}${url}`, ...options,
-        })
-        return response.data;
+        });
+        return response.data || response;
     }
 
     async get(url, options = {}) {

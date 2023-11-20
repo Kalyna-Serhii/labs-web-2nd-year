@@ -32,8 +32,6 @@ export default {
   methods: {
     initInputMask() {
       const telElement = this.$refs.phone;
-      console.log(telElement)
-      console.log(this.phone)
       if (telElement) {
         const TelMask = new InputMask('+38(099)-999-99-99');
         TelMask.mask(telElement);
@@ -46,7 +44,7 @@ export default {
       const form = this.$refs.form;
       const formBody = getFormBody(form);
       const response = await api.auth.login(formBody);
-      if(response) {
+      if(response && response.status === 204) {
         this.$router.push('/');
       }
     },
