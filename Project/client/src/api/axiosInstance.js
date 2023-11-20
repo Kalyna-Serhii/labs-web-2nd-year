@@ -1,12 +1,23 @@
 import axios from 'axios';
 
+const serverURL = 'http://localhost:8082/api';
+
 const createAxiosInstance = (serverURL) => {
     return axios.create({
-        withCredentials: true,
-        baseURL: serverURL,
+        withCredentials: true, baseURL: serverURL,
     });
 };
 
-const $axios = createAxiosInstance('http://localhost:8082/api');
+const $axios = createAxiosInstance(serverURL);
+
+$axios.interceptors.response.use(config => config, async error => {
+    const originalRequest = error.config;
+    if (error.response.status === 401 && originalRequest && !error.config._isRetry) {
+        originalRequest._isRetry = true;
+        await axios.get(`${serverURL}/refresh`, {withCredentials: true});
+        return $axios(originalRequest);
+    }
+    throw error;
+});
 
 export default $axios;

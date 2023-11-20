@@ -35,9 +35,9 @@ const AuthController = {
 
     async refresh(req, res, next) {
         try {
-            const userData = await authService.refresh(req.cookies.refreshToken);
-            res.cookie('accessToken', userData.accessToken);
-            res.cookie('refreshToken', userData.refreshToken, {httpOnly: true});
+            const {accessToken, refreshToken} = await authService.refresh(req.cookies.refreshToken);
+            res.cookie('accessToken', accessToken);
+            res.cookie('refreshToken', refreshToken, {httpOnly: true});
             return res.status(204).send();
         } catch (error) {
             next(error);
