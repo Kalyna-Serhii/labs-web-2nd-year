@@ -1,17 +1,17 @@
 import axios from 'axios';
 
-const createApiInstance = (serverURL) => {
+const createAxiosInstance = (serverURL) => {
     return axios.create({
         withCredentials: true,
         baseURL: serverURL,
     });
 };
 
-const $api = createApiInstance('http://localhost:8082/api');
+const $axios = createAxiosInstance('http://localhost:8082/api');
 
-    async patch(url, body) {
-        return await axios.patch(`${this.serverURL}${url}`, body)
-            .then(response => response.data);
-    }
+// $axios.interceptors.request.use(config => {
+//     config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`
+//     return config;
+// });
 
-export default $api;
+export default $axios;

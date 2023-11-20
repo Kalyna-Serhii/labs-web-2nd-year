@@ -17,7 +17,7 @@
           </thead>
 
           <tbody>
-          <tr v-for='(user, index) in $store.getters.getUsers' :key='index'>
+          <tr v-for='(user, index) in users' :key='index'>
             <td><span>ID</span> {{ user.id }} </td>
             <td><span>Name</span> {{ user.name }} </td>
             <td><span>Gender</span> {{ user.gender }} </td>
@@ -39,52 +39,35 @@
 </template>
 
 <script>
+import api from '@/api';
+
 export default {
   data() {
     return {
       users: [],
-    }
+    };
   },
-  mounted() {
-    this.$store.dispatch('fetchUsers');
+  methods: {
+    async getUsers() {
+      const response = await api.users.getUsers();
+      this.users = response;
+    },
+    async sortUsersById(users) {
+      if(users) {
+        this.users = users.sort((a, b) => a.id - b.id);
+      }
+    },
+    async toEditPage(id) {
+      this.$router.push(`/user/${id}`);
+    },
+    async deleteUser(id) {
+      await api.users.deleteUser(id);
+      await this.getUsers();
+    },
+  },
+  async mounted() {
+    await this.getUsers();
+    await this.sortUsersById(this.users);
   }
 }
 </script>
-
-
-<!--<script>-->
-<!--import api from '../api';-->
-<!--export default {-->
-<!--  methods: {-->
-<!--    sortUsersById(users) {-->
-<!--      return users.sort((a, b) => a.id - b.id);-->
-<!--    },-->
-
-<!--    async toEditPage(id) {-->
-<!--      try {-->
-<!--        this.$router.push(`/user/${id}`);-->
-<!--      } catch (error) {-->
-<!--        alert(error);-->
-<!--      }-->
-<!--    },-->
-
-<!--    async deleteUser(id) {-->
-<!--      try {-->
-<!--        await api.users.deleteUser(id);-->
-<!--        await this.getUsers();-->
-<!--      } catch (error) {-->
-<!--        alert(error);-->
-<!--      }-->
-<!--    },-->
-<!--  },-->
-
-<!--  async mounted() {-->
-<!--    await this.getUsers();-->
-<!--  },-->
-<!--  data() {-->
-<!--    return {-->
-<!--      users: [],-->
-<!--    };-->
-<!--  },-->
-<!--};-->
-<!--</script>-->

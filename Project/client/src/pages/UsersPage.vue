@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import TableUserComponent from "@/components/TableUserComponent.vue";
+  import TableUserComponent from "@/components/TableUsersComponent.vue";
   import HeaderSection from "@/components/HeaderSection.vue";
   import FooterSection from "@/components/FooterSection.vue";
 

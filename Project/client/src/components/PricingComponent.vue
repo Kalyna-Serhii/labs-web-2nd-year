@@ -31,19 +31,21 @@
 </template>
 
 <script>
-import api from '../api';
+import api from '@/api';
 export default {
-  async mounted() {
-    try {
-      this.pricingList = await api.packages.getPackages();
-    } catch (error) {
-      alert(error);
-    }
-  },
   data() {
     return {
       pricingList: [],
     };
+  },
+  methods: {
+    async getPricingList() {
+      const response = await api.packages.getPackages();
+      this.pricingList = response;
+    },
+  },
+  async mounted() {
+    await this.getPricingList();
   },
 };
 </script>

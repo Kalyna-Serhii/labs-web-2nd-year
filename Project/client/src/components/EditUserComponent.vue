@@ -20,7 +20,7 @@
               </div>
               <div class="col-3">
                 <label class="form-label">Phone</label>
-                <input v-model.lazy="phone" @input="initInputMask()" ref="phone" class="form-control" name="phone"
+                <input v-model.lazy="phone" ref="phone" class="form-control" name="phone"
                        type="tel" id="phone"/>
               </div>
               <div class="col-3">
@@ -54,78 +54,52 @@
 <script>
 import api from '@/api';
 import InputMask from "@/assets/js/inputmask.min";
+import getFormBody from "@/utils/getFormBody";
 
 export default {
-  methods: {
-    initInputMask() {
-      const telElement = this.$refs.phone;
-      if (telElement) {
-        const TelMask = new InputMask("+38(099)-999-99-99");
-        TelMask.mask(telElement);
-      }
-
-      const id = this.$refs.id;
-      id.readOnly = true;
-    },
-
-    getUserIdFromRoute() {
-      return this.$route.params.userId;
-    },
-
-    async getUserById(userId) {
-      try {
-        this.user = await api.users.getUserById(userId);
-        this.phone = this.user.phone;
-        this.initInputMask();
-      } catch (error) {
-        alert(error);
-      }
-    },
-
-    async submitForm() {
-      const form = this.$refs.form;
-      const userId = this.user.id;
-      const formBody = this.getFormBody(form);
-      try {
-        await api.users.updateUser(userId, formBody);
-        this.$router.push('/users');
-      } catch (error) {
-        alert(error);
-      }
-    },
-
-    getFormBody(form) {
-      const formBody = {};
-      const formElements = Array.from(form.elements);
-      formElements.forEach((element) => {
-        if (element.name) {
-          formBody[element.name] = element.value;
-        }
-      });
-      return formBody;
-    },
-
-    async deleteUser(id) {
-      try {
-        await api.users.deleteUser(id);
-        this.$router.push('/users');
-      } catch (error) {
-        alert(error);
-      }
-    },
-  },
-
-  async mounted() {
-    const userId = this.getUserIdFromRoute();
-    await this.getUserById(userId);
-    this.initInputMask()
-  },
-
   data() {
     return {
       user: [],
       phone: '',
     }
-  }
+  },
+  methods: {
+    initInputMask() {
+      const telElement = this.$refs.phone;
+      if (telElement) {
+        const TelMask = new InputMask('+38(099)-999-99-99');
+        TelMask.mask(telElement);
+      }
+    },
+    getUserIdFromRoute() {
+      return this.$route.params.userId;
+    },
+
+    async getUserById(userId) {
+      this.user = await api.users.getUserById(userId);
+      this.phone = this.user.phone;
+      await this.initInputMask();
+    },
+
+    async submitForm() {
+      const form = this.$refs.form;
+      const userId = this.user.id;
+      const formBody = getFormBody(form);
+      await api.users.updateUser(userId, formBody);
+      this.$router.push('/users');
+    },
+
+    async deleteUser(id) {
+      await api.users.deleteUser(id);
+      this.$router.push('/users');
+    },
+  },
+
+  async mounted() {
+    const id = this.$refs.id;
+    id.readOnly = true;
+    const userId = this.getUserIdFromRoute();
+    await this.getUserById(userId);
+  },
 }
 </script>

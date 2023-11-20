@@ -1,9 +1,7 @@
-import axiosInstance from "./axiosInstance";
-import users from "./users";
-import packages from "./packages";
+import users from "./users-api";
+import packages from "./packages-api";
 
 const api = {
-    axiosInstance,
     users,
     packages,
 };
