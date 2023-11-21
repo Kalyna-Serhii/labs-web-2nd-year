@@ -12,7 +12,7 @@
           <router-link class='navbar-brand' to='/'><img src='@/assets/img/logo.png' alt='logo'></router-link>
         </div>
         <div class='collapse navbar-collapse navbar-right'>
-          <ul v-if="this.tokenIsValid" class='nav navbar-nav'>
+          <ul v-if="this.accessToken" class='nav navbar-nav'>
             <li v-for="(button, index) in buttonsListForUser" :key="index">
               <router-link class='scroll' :to='button.link'> {{ button.name }}</router-link>
             </li>
@@ -105,7 +105,6 @@ export default {
         },
       ],
       accessToken: '',
-      tokenIsValid: false,
     }
   },
   methods: {
@@ -113,19 +112,26 @@ export default {
       const cookies = document.cookie;
       if (cookies) {
         const accessTokenCookie = decodeURIComponent(cookies).split(';').find(cookie => cookie.trim().startsWith('accessToken='));
-        const accessToken = accessTokenCookie ? accessTokenCookie.split('=')[1] : null;
-        this.accessToken = accessToken;
+        const accessTokenData = accessTokenCookie ? accessTokenCookie.split('=')[1] : null;
+        const accessToken = accessTokenData.split('.')[1];
+        if(accessToken) {
+          const tokenIsValid =  this.checkToken(accessToken);
+          if(tokenIsValid) {
+            this.accessToken = accessToken;
+          } else {
+            this.accessToken = '';
+          }
+        } else {
+          this.accessToken = '';
+        }
       }
     },
-    checkToken() {
-      const token = this.accessToken.split('.')[1];
+    checkToken(token) {
       if (token) {
         const tokenData = JSON.parse(atob(token));
         const currentTime = Math.floor(Date.now() / 1000);
-        const tokenIsValid = tokenData.exp > currentTime;
-        this.tokenIsValid = tokenIsValid;
+        return  tokenData.exp > currentTime;
       }
-
     },
   },
   mounted() {

@@ -12,7 +12,7 @@ const $axios = createAxiosInstance(serverURL);
 
 $axios.interceptors.response.use(config => config, async error => {
     const originalRequest = error.config;
-    if (error.response.status === 401 && originalRequest && !error.config._isRetry) {
+    if (error.response && error.response.status === 401 && originalRequest && !error.config._isRetry) {
         originalRequest._isRetry = true;
         await axios.get(`${serverURL}/refresh`, {withCredentials: true});
         return $axios(originalRequest);

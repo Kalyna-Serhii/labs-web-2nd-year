@@ -44,7 +44,7 @@ export default {
       const form = this.$refs.form;
       const formBody = getFormBody(form);
       const response = await api.auth.login(formBody);
-      if(response && response.status === 204) {
+      if(response.status === 204) {
         this.$router.push('/');
       }
     },

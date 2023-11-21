@@ -5,7 +5,22 @@ const authApi = {
         try {
             return await $api.post('/login', body);
         } catch (error) {
-            alert(`Failed to login: ${error.response.data.message || error}`);
+            if (error.response) {
+                alert(`Failed to receive users: ${error.response.data.message}`);
+            } else {
+                alert(`Failed to receive users: ${error.message || error}`);
+            }
+        }
+    },
+    async logout() {
+        try {
+            return await $api.post('/logout', {});
+        } catch (error) {
+            if (error.response) {
+                alert(`Failed to receive users: ${error.response.data.message}`);
+            } else {
+                alert(`Failed to receive users: ${error.message || error}`);
+            }
         }
     },
 }

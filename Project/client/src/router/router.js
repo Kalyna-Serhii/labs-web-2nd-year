@@ -2,8 +2,9 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "@/pages/HomePage.vue";
 import ContactsPage from "@/pages/ContactsPage.vue";
 import FAQPage from "@/pages/FAQPage.vue";
-import LoginPage from "@/pages/LoginPage.vue";
 import RegisterPage from "@/pages/RegisterPage.vue";
+import LoginPage from "@/pages/LoginPage.vue";
+import LogoutPage from "@/pages/LogoutPage.vue";
 import UsersPage from "@/pages/UsersPage.vue";
 import EditUserPage from "@/pages/EditUserPage.vue";
 
@@ -34,6 +35,13 @@ const routes = [
         }
     },
     {
+        path: '/register',
+        component: RegisterPage,
+        meta: {
+            title: 'Register'
+        }
+    },
+    {
       path: '/login',
       component: LoginPage,
         meta: {
@@ -41,10 +49,10 @@ const routes = [
         }
     },
     {
-        path: '/register',
-        component: RegisterPage,
+        path: '/logout',
+        component: LogoutPage,
         meta: {
-            title: 'Register'
+            title: 'Logout'
         }
     },
     {

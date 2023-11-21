@@ -5,7 +5,11 @@ const packagesApi = {
         try {
             return await $api.get('/packages');
         } catch (error) {
-            alert(`Failed to receive packages: ${error}`);
+            if (error.response) {
+                alert(`Failed to receive users: ${error.response.data.message}`);
+            } else {
+                alert(`Failed to receive users: ${error.message || error}`);
+            }
         }
     },
 
@@ -13,7 +17,11 @@ const packagesApi = {
         try {
             return await $api.get(`/package/${packageId}`);
         } catch (error) {
-            alert(`Failed to receive package: ${error}`);
+            if (error.response) {
+                alert(`Failed to receive users: ${error.response.data.message}`);
+            } else {
+                alert(`Failed to receive users: ${error.message || error}`);
+            }
         }
     },
 
@@ -21,7 +29,11 @@ const packagesApi = {
         try {
             return await $api.post('/package', body);
         } catch (error) {
-            alert(`Failed to create package: ${error}`);
+            if (error.response) {
+                alert(`Failed to receive users: ${error.response.data.message}`);
+            } else {
+                alert(`Failed to receive users: ${error.message || error}`);
+            }
         }
     },
 
@@ -29,7 +41,11 @@ const packagesApi = {
         try {
             return await $api.patch(`/package/${packageId}`, body);
         } catch (error) {
-            alert(`Failed to update package: ${error}`);
+            if (error.response) {
+                alert(`Failed to receive users: ${error.response.data.message}`);
+            } else {
+                alert(`Failed to receive users: ${error.message || error}`);
+            }
         }
     },
 
@@ -37,7 +53,11 @@ const packagesApi = {
         try {
             await $api.delete(`/package/${packageId}`);
         } catch (error) {
-            alert(`Failed to delete package: ${error}`);
+            if (error.response) {
+                alert(`Failed to receive users: ${error.response.data.message}`);
+            } else {
+                alert(`Failed to receive users: ${error.message || error}`);
+            }
         }
     },
 };
