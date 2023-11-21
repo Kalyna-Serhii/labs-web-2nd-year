@@ -21,8 +21,8 @@ const serviceController = {
 
     async createService(req, res, next) {
         try {
-            const newService = await serviceService.createService(req.body);
-            return res.status(201).json(newService);
+            await serviceService.createService(req.body);
+            return res.status(201).send();
         } catch (error) {
             next(error);
         }
@@ -30,8 +30,8 @@ const serviceController = {
 
     async updateService(req, res, next) {
         try {
-            const updatedService = await serviceService.updateService(req.params.id, req.body);
-            return res.status(200).json(updatedService);
+            await serviceService.updateService(req.params.id, req.body);
+            return res.status(200).send();
         } catch (error) {
             next(error);
         }

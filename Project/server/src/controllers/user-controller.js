@@ -21,8 +21,8 @@ const UserController = {
 
     async createUser(req, res, next) {
         try {
-            const newUser = await userService.createUser(req.body);
-            return res.status(200).json(newUser);
+            await userService.createUser(req.body);
+            return res.status(201).send();
         } catch (error) {
             next(error);
         }
@@ -30,8 +30,8 @@ const UserController = {
 
     async updateUser(req, res, next) {
         try {
-            const updatedUser = await userService.updateUser(req.params.id, req.body);
-            return res.status(200).json(updatedUser);
+            await userService.updateUser(req.params.id, req.body);
+            return res.status(200).send();
         } catch (error) {
             next(error);
         }

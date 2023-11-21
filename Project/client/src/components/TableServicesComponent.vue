@@ -22,6 +22,7 @@
             <td><span>Prise</span> {{ service.price }} </td>
             <td>
               <span>Control</span>
+              <button @click="toCreatePage()" class="btn btn-small btn-primary"><i class="bi bi-plus-square"></i></button>
               <button @click="toEditPage(service.id)" class="btn btn-small btn-primary"><i class="bi bi-pencil-square"></i></button>
               <button @click="deleteService(service.id)" class="btn btn-small btn-primary"><i class="bi bi-trash"></i></button>
             </td>
@@ -52,6 +53,9 @@ export default {
       if(services) {
         this.services = services.sort((a, b) => a.id - b.id);
       }
+    },
+    async toCreatePage() {
+      this.$router.push('/services/new');
     },
     async toEditPage(id) {
       this.$router.push(`/service/${id}`);

@@ -26,6 +26,7 @@
             <td><span>Role</span> {{ user.role }} </td>
             <td>
               <span>Control</span>
+              <button @click="toCreatePage()" class="btn btn-small btn-primary"><i class="bi bi-plus-square"></i></button>
               <button @click="toEditPage(user.id)" class="btn btn-small btn-primary"><i class="bi bi-pencil-square"></i></button>
               <button @click="deleteUser(user.id)" class="btn btn-small btn-primary"><i class="bi bi-trash"></i></button>
             </td>
@@ -56,6 +57,9 @@ export default {
       if(users) {
         this.users = users.sort((a, b) => a.id - b.id);
       }
+    },
+    async toCreatePage() {
+      this.$router.push('/users/new');
     },
     async toEditPage(id) {
       this.$router.push(`/user/${id}`);

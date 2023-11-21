@@ -6,8 +6,10 @@ import RegisterPage from "@/pages/RegisterPage.vue";
 import LoginPage from "@/pages/LoginPage.vue";
 import LogoutPage from "@/pages/LogoutPage.vue";
 import UsersPage from "@/pages/UsersPage.vue";
+import CreateUserPage from "@/pages/CreateUserPage.vue";
 import EditUserPage from "@/pages/EditUserPage.vue";
 import ServicesPage from "@/pages/ServicesPage.vue";
+import CreateServicePage from "@/pages/CreateServicePage.vue";
 import EditServicePage from "@/pages/EditServicePage.vue";
 
 const routes = [
@@ -65,6 +67,13 @@ const routes = [
         }
     },
     {
+        path: '/users/new',
+        component: CreateUserPage,
+        meta: {
+            title: 'Create user'
+        }
+    },
+    {
         path: '/user/:userId',
         component: EditUserPage,
         meta: {
@@ -76,6 +85,13 @@ const routes = [
         component: ServicesPage,
         meta: {
             title: 'Services'
+        }
+    },
+    {
+        path: '/services/new',
+        component: CreateServicePage,
+        meta: {
+            title: 'Create service'
         }
     },
     {
