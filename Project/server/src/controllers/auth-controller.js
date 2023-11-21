@@ -4,8 +4,9 @@ const AuthController = {
     async register(req, res, next) {
         try {
             const newUser = await authService.register(req.body);
-            res.cookie('refreshToken', newUser.refreshToken, {maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true});
-            return res.status(201).json(newUser);
+            res.cookie('accessToken', newUser.accessToken);
+            res.cookie('refreshToken', newUser.refreshToken, {httpOnly: true});
+            return res.status(201).send();
         } catch (error) {
             next(error);
         }

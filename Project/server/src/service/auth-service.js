@@ -9,7 +9,7 @@ const AuthService = {
         const {name, gender, phone, password, email, role} = body;
 
         const userWithSamePhone = await UserModel.findOne({where: {phone}});
-        if (userWithSamePhone && userWithSamePhone.id !== parseInt(id)) {
+        if (userWithSamePhone) {
             throw ApiError.BadRequest(`User with ${phone} phone number already exists`);
         }
 

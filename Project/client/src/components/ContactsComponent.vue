@@ -34,7 +34,6 @@
 </template>
 
 <script>
-import bus from '@/event-bus';
 
 export default {
   data () {
@@ -52,7 +51,6 @@ export default {
   },
   methods: {
     submitForm() {
-      bus.emit('formDataSubmitted', this.formData);
       this.clearForm();
     },
     clearForm() {

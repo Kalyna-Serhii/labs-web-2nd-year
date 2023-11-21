@@ -665,14 +665,15 @@ footer ul > li {
 
 /*end animation*/
 
-#loginForm, #registerForm {
+#registerForm,
+#loginForm {
     padding: 50px 0;
     display: flex;
     text-align: center;
     justify-content: center;
 }
 
-#registerForm form {
+#registerForm > form {
     width: 600px;
     padding: 50px 70px;
     border-radius: 10px;
@@ -688,7 +689,7 @@ footer ul > li {
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
     background-color: white;
 }
-
+#registerForm .form-group,
 #loginForm .form-group {
     display: flex;
     flex-direction: column;
@@ -701,23 +702,24 @@ footer ul > li {
     color: #282828;
 }
 
-#loginForm .item,
 #registerForm .item,
+#loginForm .item,
 #contactsForm .item {
     border-radius: 10px;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
     padding: 25px 20px;
 }
 
 @media (max-width: 768px) {
-    #loginForm .item, .registerForm .item {
+    #registerForm .item,
+    #loginForm .item {
         border-radius: 10px;
         margin-bottom: 25px;
         padding: 20px 10px;
     }
 
-    #loginForm > form,
     #registerForm > form,
+    #loginForm > form,
     #contactsForm > form {
         width: 90%;
         padding: 20px 30px;
@@ -767,11 +769,6 @@ select {
     margin-top: 15px;
 }
 
-#registerForm .item {
-    margin-bottom: 10px;
-    padding: 1px 15px;
-}
-
 #registerForm > .form-group > label {
     margin-left: 5px;
     font-size: 15px;
@@ -784,7 +781,7 @@ select {
     flex-direction: column;
     align-items: flex-start;
     margin-top: 0;
-    margin-bottom: 8px;
+    margin-bottom: 18px;
 }
 
 .contacts {
@@ -994,6 +991,7 @@ a i.fa:hover {
     margin-bottom: 0;
     display: flex;
     align-items: center;
+    font-size: 15px;
 }
 
 label {
