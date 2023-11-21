@@ -7,6 +7,8 @@ import LoginPage from "@/pages/LoginPage.vue";
 import LogoutPage from "@/pages/LogoutPage.vue";
 import UsersPage from "@/pages/UsersPage.vue";
 import EditUserPage from "@/pages/EditUserPage.vue";
+import ServicesPage from "@/pages/ServicesPage.vue";
+import EditServicePage from "@/pages/EditServicePage.vue";
 
 const routes = [
     {
@@ -67,6 +69,20 @@ const routes = [
         component: EditUserPage,
         meta: {
             title: 'Edit user'
+        }
+    },
+    {
+        path: '/services',
+        component: ServicesPage,
+        meta: {
+            title: 'Services'
+        }
+    },
+    {
+        path: '/service/:serviceId',
+        component: EditServicePage,
+        meta: {
+            title: 'Edit service'
         }
     },
 ]

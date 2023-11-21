@@ -53,7 +53,7 @@
 
 <script>
 import api from '@/api';
-import InputMask from "@/assets/js/inputmask.min";
+import initInputMask from '@/utils/initInputMask';
 import getFormBody from "@/utils/getFormBody";
 
 export default {
@@ -64,23 +64,13 @@ export default {
     }
   },
   methods: {
-    initInputMask() {
-      const telElement = this.$refs.phone;
-      if (telElement) {
-        const TelMask = new InputMask('+38(099)-999-99-99');
-        TelMask.mask(telElement);
-      }
-    },
     getUserIdFromRoute() {
       return this.$route.params.userId;
     },
-
     async getUserById(userId) {
       this.user = await api.users.getUserById(userId);
       this.phone = this.user.phone;
-      await this.initInputMask();
     },
-
     async submitForm() {
       const form = this.$refs.form;
       const userId = this.user.id;
@@ -88,18 +78,17 @@ export default {
       await api.users.updateUser(userId, formBody);
       this.$router.push('/users');
     },
-
     async deleteUser(id) {
       await api.users.deleteUser(id);
       this.$router.push('/users');
     },
   },
-
   async mounted() {
     const id = this.$refs.id;
     id.readOnly = true;
     const userId = this.getUserIdFromRoute();
     await this.getUserById(userId);
+    initInputMask(this.$refs.phone);
   },
 }
 </script>

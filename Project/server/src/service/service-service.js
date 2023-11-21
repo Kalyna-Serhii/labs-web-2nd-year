@@ -7,9 +7,17 @@ const ServiceService = {
         return services;
     },
 
+    async getServiceById(id) {
+        const service = await serviceModel.findOne({where: {id}});
+        if (!service) {
+            throw ApiError.BadRequest('Service not found');
+        }
+        return service;
+    },
+
     async createService(body) {
-        const {id, name, description, price} = body;
-        const newService = await serviceModel.create({id, name, description, price});
+        const {name, description, price} = body;
+        const newService = await serviceModel.create({name, description, price});
         return newService;
     },
 

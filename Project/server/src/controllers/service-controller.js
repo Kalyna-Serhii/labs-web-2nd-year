@@ -10,6 +10,15 @@ const serviceController = {
         }
     },
 
+    async getServiceById(req, res, next) {
+        try {
+            const service = await serviceService.getServiceById(req.params.id);
+            return res.status(200).json(service);
+        } catch (error) {
+            next(error);
+        }
+    },
+
     async createService(req, res, next) {
         try {
             const newService = await serviceService.createService(req.body);

@@ -1,5 +1,4 @@
 import ApiError from '../exceptions/api-error.js';
-import {sequelize} from '../database/database.config.js';
 import packageModel from '../models/package-model.js';
 import serviceModel from "../models/service-model.js";
 import servicePackageModel from "../models/servicePackage-model.js";
@@ -43,8 +42,8 @@ const PackageService = {
     },
 
     async createPackage(body) {
-        const {id, name, description, price, idServices} = body;
-        const newPackage = await packageModel.create({id, name, description, price});
+        const {name, description, price, idServices} = body;
+        const newPackage = await packageModel.create({name, description, price});
         const services = await serviceModel.findAll({where: {id: idServices}});
         await newPackage.addServices(services);
         const resultPackage = {

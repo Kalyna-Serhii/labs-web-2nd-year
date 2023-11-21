@@ -1016,6 +1016,12 @@ label {
     margin: 0 10px;
 }
 
+.col-4 {
+    flex: 0 0 auto;
+    width: 40%;
+    margin: 0 10px;
+}
+
 .col-6 {
     flex: 0 0 auto;
     width: 5%;
