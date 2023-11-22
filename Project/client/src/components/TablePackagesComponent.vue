@@ -13,11 +13,11 @@
                 <li class="plan-header">
                   <div class="price-duration">
                     <span class="price">${{ Package.price }}</span>
-                    <span class="duration">Car Servicing</span>
+                    <span class="duration">{{Package.description}}</span>
                   </div>
                   <div class="plan-name">{{ Package.name }}</div>
                 </li>
-                <li v-for="service in Package.services" :key="service"> {{ service.name }}</li>
+                <li v-for="service in Package.services" :key="service"> {{ service.name }} - ${{service.price}}</li>
                 <li>
                   <button @click="toEditPage(Package.id)" class="btn btn-small btn-primary"><i
                       class="bi bi-pencil-square"></i></button>

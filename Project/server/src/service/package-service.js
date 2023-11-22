@@ -65,7 +65,7 @@ const PackageService = {
         updatedFields.price = price;
         const updatedPackage = await oldPackage.update(updatedFields);
         const services = await serviceModel.findAll({where: {id: idServices}});
-        await updatedPackage.addServices(services);
+        await updatedPackage.setServices(services);
         const resultPackage = {
             ...updatedPackage.get(),
             services

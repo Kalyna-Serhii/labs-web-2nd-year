@@ -15,11 +15,11 @@
                 <li class="plan-header">
                   <div class="price-duration">
                     <span class="price">${{ plan.price }}</span>
-                    <span class="duration">Car Servicing</span>
+                    <span class="duration">{{plan.description}}</span>
                   </div>
                   <div class="plan-name">{{ plan.name }}</div>
                 </li>
-                <li v-for="service in plan.services" :key="service"> {{ service.name }}</li>
+                <li v-for="service in plan.services" :key="service"> {{ service.name }} - ${{service.price}}</li>
                 <li class="plan-purchase"><a class="btn btn-primary" href="#">Get It Now!</a></li>
               </ul>
             </div>

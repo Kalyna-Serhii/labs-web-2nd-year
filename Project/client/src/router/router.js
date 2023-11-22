@@ -12,6 +12,8 @@ import ServicesPage from "@/pages/ServicesPage.vue";
 import CreateServicePage from "@/pages/CreateServicePage.vue";
 import EditServicePage from "@/pages/EditServicePage.vue";
 import PackagesPage from "@/pages/PackagesPage.vue";
+import CreatePackagePage from "@/pages/CreatePackagePage.vue";
+import EditPackagePage from "@/pages/EditPackagePage.vue";
 
 const routes = [
     {
@@ -107,6 +109,20 @@ const routes = [
         component: PackagesPage,
         meta: {
             title: 'Packages'
+        }
+    },
+    {
+        path: '/packages/new',
+        component: CreatePackagePage,
+        meta: {
+            title: 'Create package'
+        }
+    },
+    {
+        path: '/package/:packageId',
+        component: EditPackagePage,
+        meta: {
+            title: 'Edit package'
         }
     },
 ]

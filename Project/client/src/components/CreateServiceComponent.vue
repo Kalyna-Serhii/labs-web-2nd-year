@@ -8,7 +8,7 @@
             <div class="row border mb-3">
               <div class="col-3">
                 <label class="form-label">Name</label>
-                <input class="form-control" name="name" type="text" />
+                <input class="form-control" name="name" type="text" required />
               </div>
               <div class="col-4">
                 <label class="form-label">Description</label>
@@ -16,7 +16,7 @@
               </div>
               <div class="col-3">
                 <label class="form-label">Price</label>
-                <input class="form-control" name="price" type="number" />
+                <input class="form-control" name="price" type="number" required />
               </div>
               <div class="col-6">
                 <label class="form-label">Control</label>

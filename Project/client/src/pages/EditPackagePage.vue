@@ -1,15 +1,15 @@
 <template>
   <header-section></header-section>
-  <edit-service-component></edit-service-component>
+  <edit-package-component></edit-package-component>
   <footer-section></footer-section>
 </template>
 
 <script>
-  import EditServiceComponent from "@/components/EditServiceComponent.vue";
+  import EditPackageComponent from "@/components/EditPackageComponent.vue";
   import HeaderSection from "@/components/HeaderSection.vue";
   import FooterSection from "@/components/FooterSection.vue";
 
   export default {
-    components: { HeaderSection, EditServiceComponent, FooterSection }
+    components: { HeaderSection, EditPackageComponent, FooterSection }
   }
 </script>

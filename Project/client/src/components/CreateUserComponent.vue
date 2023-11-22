@@ -8,20 +8,20 @@
             <div class="row border mb-3">
               <div class="col-3">
                 <label class="form-label">Name</label>
-                <input class="form-control" name="name" type="text" required/>
+                <input class="form-control" name="name" type="text" required />
               </div>
               <div class="col-3">
                 <label class="form-label">Gender</label>
-                <input class="form-control" name="gender" type="text"/>
+                <input class="form-control" name="gender" type="text" required />
               </div>
               <div class="col-3">
                 <label class="form-label">Phone</label>
                 <input ref="phone" class="form-control" placeholder='+38(0__)-___-__-__' name="phone" type="tel"
-                       id="phone" required/>
+                       id="phone" required />
               </div>
               <div class="col-3">
                 <label class="form-label">Password</label>
-                <input class="form-control" name="password" type="password" required/>
+                <input class="form-control" name="password" type="password" required />
               </div>
               <div class="col-3">
                 <label class="form-label">Email</label>
@@ -29,7 +29,7 @@
               </div>
               <div class="col-3">
                 <label class="form-label">Role</label>
-                <input class="form-control" name="role" type="text"/>
+                <input class="form-control" name="role" type="text" required />
               </div>
               <div class="col-6">
                 <label class="form-label">Control</label>
