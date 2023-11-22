@@ -8,6 +8,9 @@ import LogoutPage from "@/pages/LogoutPage.vue";
 import UsersPage from "@/pages/UsersPage.vue";
 import CreateUserPage from "@/pages/CreateUserPage.vue";
 import EditUserPage from "@/pages/EditUserPage.vue";
+import CarsPage from "@/pages/CarsPage.vue";
+import CreateCarPage from "@/pages/CreateCarPage.vue";
+import EditCarPage from "@/pages/EditCarPage.vue";
 import ServicesPage from "@/pages/ServicesPage.vue";
 import CreateServicePage from "@/pages/CreateServicePage.vue";
 import EditServicePage from "@/pages/EditServicePage.vue";
@@ -123,6 +126,27 @@ const routes = [
         component: EditPackagePage,
         meta: {
             title: 'Edit package'
+        }
+    },
+    {
+        path: '/cars',
+        component: CarsPage,
+        meta: {
+            title: 'Cars'
+        }
+    },
+    {
+        path: '/cars/new',
+        component: CreateCarPage,
+        meta: {
+            title: 'Create car'
+        }
+    },
+    {
+        path: '/car/:carId',
+        component: EditCarPage,
+        meta: {
+            title: 'Edit car'
         }
     },
 ]
