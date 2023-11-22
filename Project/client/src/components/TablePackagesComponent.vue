@@ -21,7 +21,7 @@
                 <li>
                   <button @click="toEditPage(Package.id)" class="btn btn-small btn-primary"><i
                       class="bi bi-pencil-square"></i></button>
-                  <button @click="deleteService(Package.id)" class="btn btn-small btn-primary"><i
+                  <button @click="deletePackage(Package.id)" class="btn btn-small btn-primary"><i
                       class="bi bi-trash"></i></button>
                 </li>
               </ul>
@@ -49,7 +49,7 @@ export default {
     },
     async sortPackagesByPrice(packages) {
       if (packages) {
-        this.services = packages.sort((a, b) => a.price - b.price);
+        this.packages = packages.sort((a, b) => a.price - b.price);
       }
     },
     async toCreatePage() {
@@ -58,7 +58,7 @@ export default {
     async toEditPage(id) {
       this.$router.push(`/package/${id}`);
     },
-    async deleteService(id) {
+    async deletePackage(id) {
       await api.packages.deletePackage(id);
       await this.getPackages();
     },

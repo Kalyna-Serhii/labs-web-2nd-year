@@ -51,7 +51,7 @@ const usersApi = {
 
     async deleteUser(userId) {
         try {
-            await $api.delete(`/user/${userId}`);
+            return await $api.delete(`/user/${userId}`);
         } catch (error) {
             if (error.response) {
                 alert(`Failed to delete user: ${error.response.data.message}`);

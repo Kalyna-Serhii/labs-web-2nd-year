@@ -78,7 +78,7 @@ export default {
     },
     async deleteUser(id) {
       const response = await api.users.deleteUser(id);
-      if (response && response.status === 200) {
+      if (response && response.status === 204) {
         this.$router.push('/users');
       }
     },

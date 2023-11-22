@@ -92,7 +92,7 @@ export default {
     },
     async deletePackage(id) {
       const response = await api.packages.deletePackage(id);
-      if (response && response.status === 200) {
+      if (response && response.status === 204) {
         this.$router.push('/packages');
       }
     },

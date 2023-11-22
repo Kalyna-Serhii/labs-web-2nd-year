@@ -51,7 +51,7 @@ const packagesApi = {
 
     async deletePackage(packageId) {
         try {
-            await $api.delete(`/package/${packageId}`);
+            return await $api.delete(`/package/${packageId}`);
         } catch (error) {
             if (error.response) {
                 alert(`Failed to delete package: ${error.response.data.message}`);

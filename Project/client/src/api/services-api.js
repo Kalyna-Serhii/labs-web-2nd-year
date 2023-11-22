@@ -51,7 +51,7 @@ const servicesApi = {
 
     async deleteService(serviceId) {
         try {
-            await $api.delete(`/service/${serviceId}`);
+            return await $api.delete(`/service/${serviceId}`);
         } catch (error) {
             if (error.response) {
                 alert(`Failed to delete service: ${error.response.data.message}`);

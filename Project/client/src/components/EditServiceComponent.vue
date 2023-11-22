@@ -68,7 +68,7 @@ export default {
     },
     async deleteService(id) {
       const response = await api.services.deleteService(id);
-      if (response && response.status === 200) {
+      if (response && response.status === 204) {
         this.$router.push('/services');
       }
     },
