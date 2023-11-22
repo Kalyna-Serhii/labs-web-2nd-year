@@ -1,7 +1,7 @@
 import {DataTypes, sequelize} from '../database/database.config.js';
 
-const PackageModel = sequelize.define(
-    'Package',
+const CarModel = sequelize.define(
+    'Car',
     {
         id: {
             type: DataTypes.INTEGER,
@@ -9,23 +9,31 @@ const PackageModel = sequelize.define(
             autoIncrement: true,
             allowNull: false,
         },
-        name: {
+        brand: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
         },
-        description: {
-            type: DataTypes.TEXT,
+        model: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        year: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
         },
         price: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        amount: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
     },
     {
-        tableName: 'packages',
+        tableName: 'cars',
         timestamps: false, // відключення генерації полів createdAt і updatedAt
     },
 );
 
-export default PackageModel;
+export default CarModel;

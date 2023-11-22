@@ -1,4 +1,4 @@
-import { DataTypes, sequelize } from '../database/database.config.js';
+import {DataTypes, sequelize} from '../database/database.config.js';
 
 const ServiceModel = sequelize.define(
     'Service',
@@ -12,6 +12,7 @@ const ServiceModel = sequelize.define(
         name: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
         },
         description: {
             type: DataTypes.TEXT,
