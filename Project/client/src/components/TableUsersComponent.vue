@@ -1,6 +1,8 @@
 <template>
   <section>
-    <h2>Users</h2>
+    <h2>Users
+      <button @click="toCreatePage()" class="btn btn-small btn-primary"><i class="bi bi-plus-square"></i></button>
+    </h2>
     <section>
       <div class="container">
         <table class="resp-tab">
@@ -26,7 +28,6 @@
             <td><span>Role</span> {{ user.role }} </td>
             <td>
               <span>Control</span>
-              <button @click="toCreatePage()" class="btn btn-small btn-primary"><i class="bi bi-plus-square"></i></button>
               <button @click="toEditPage(user.id)" class="btn btn-small btn-primary"><i class="bi bi-pencil-square"></i></button>
               <button @click="deleteUser(user.id)" class="btn btn-small btn-primary"><i class="bi bi-trash"></i></button>
             </td>

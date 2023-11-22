@@ -12,16 +12,16 @@
               </div>
               <div class="col-3">
                 <label class="form-label">Name</label>
-                <input class="form-control" name="name" type="text" :value="user.name"/>
+                <input class="form-control" name="name" type="text" :value="user.name" required />
               </div>
               <div class="col-3">
                 <label class="form-label">Gender</label>
-                <input class="form-control" name="gender" type="text" :value="user.gender"/>
+                <input class="form-control" name="gender" type="text" :value="user.gender" required/>
               </div>
               <div class="col-3">
                 <label class="form-label">Phone</label>
                 <input v-model="phone" ref="phone" class="form-control" name="phone"
-                       type="tel" id="phone"/>
+                       type="tel" id="phone" required/>
               </div>
               <div class="col-3">
                 <label class="form-label">Email</label>
@@ -29,7 +29,7 @@
               </div>
               <div class="col-3">
                 <label class="form-label">Role</label>
-                <input class="form-control" name="role" type="text" :value="user.role"/>
+                <input class="form-control" name="role" type="text" :value="user.role" required/>
               </div>
               <div class="col-6">
                 <label class="form-label">Control</label>
@@ -75,12 +75,16 @@ export default {
       const form = this.$refs.form;
       const userId = this.user.id;
       const formBody = getFormBody(form);
-      await api.users.updateUser(userId, formBody);
-      this.$router.push('/users');
+      const response = await api.users.updateUser(userId, formBody);
+      if(response && response.status === 200) {
+        this.$router.push('/users');
+      }
     },
     async deleteUser(id) {
-      await api.users.deleteUser(id);
-      this.$router.push('/users');
+      const response = await api.users.deleteUser(id);
+      if(response && response.status === 200) {
+        this.$router.push('/users');
+      }
     },
   },
   async mounted() {

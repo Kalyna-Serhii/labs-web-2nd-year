@@ -12,7 +12,7 @@
               </div>
               <div class="col-3">
                 <label class="form-label">Name</label>
-                <input class="form-control" name="name" type="text" :value="service.name"/>
+                <input class="form-control" name="name" type="text" :value="service.name" required/>
               </div>
               <div class="col-4">
                 <label class="form-label">Description</label>
@@ -20,7 +20,7 @@
               </div>
               <div class="col-3">
                 <label class="form-label">Price</label>
-                <input class="form-control" name="price" type="number" :value="service.price"/>
+                <input class="form-control" name="price" type="number" :value="service.price" required/>
               </div>
               <div class="col-6">
                 <label class="form-label">Control</label>
@@ -63,12 +63,16 @@ export default {
       const form = this.$refs.form;
       const serviceId = this.service.id;
       const formBody = getFormBody(form);
-      await api.services.updateService(serviceId, formBody);
-      this.$router.push('/services');
+      const response = await api.services.updateService(serviceId, formBody);
+      if(response && response.status === 200) {
+        this.$router.push('/services');
+      }
     },
     async deleteService(id) {
-      await api.services.deleteService(id);
-      this.$router.push('/services');
+      const response = await api.services.deleteService(id);
+      if(response && response.status === 200) {
+        this.$router.push('/services');
+      }
     },
   },
   async mounted() {

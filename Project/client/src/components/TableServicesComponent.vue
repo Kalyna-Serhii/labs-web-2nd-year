@@ -1,6 +1,9 @@
 <template>
   <section>
-    <h2>Services</h2>
+    <h2>Services
+      <button @click="toCreatePage()" class="btn btn-small btn-primary"><i class="bi bi-plus-square"></i></button>
+    </h2>
+
     <section>
       <div class="container">
         <table class="resp-tab">
@@ -22,7 +25,6 @@
             <td><span>Prise</span> {{ service.price }} </td>
             <td>
               <span>Control</span>
-              <button @click="toCreatePage()" class="btn btn-small btn-primary"><i class="bi bi-plus-square"></i></button>
               <button @click="toEditPage(service.id)" class="btn btn-small btn-primary"><i class="bi bi-pencil-square"></i></button>
               <button @click="deleteService(service.id)" class="btn btn-small btn-primary"><i class="bi bi-trash"></i></button>
             </td>
