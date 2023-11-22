@@ -6,9 +6,9 @@ const servicesApi = {
             return await $api.get('/services');
         } catch (error) {
             if (error.response) {
-                alert(`Failed to receive users: ${error.response.data.message}`);
+                alert(`Failed to receive services: ${error.response.data.message}`);
             } else {
-                alert(`Failed to receive users: ${error.message || error}`);
+                alert(`Failed to receive services: ${error.message || error}`);
             }
         }
     },
@@ -18,9 +18,9 @@ const servicesApi = {
             return await $api.get(`/service/${serviceId}`);
         } catch (error) {
             if (error.response) {
-                alert(`Failed to receive users: ${error.response.data.message}`);
+                alert(`Failed to receive service: ${error.response.data.message}`);
             } else {
-                alert(`Failed to receive users: ${error.message || error}`);
+                alert(`Failed to receive service: ${error.message || error}`);
             }
         }
     },
@@ -30,9 +30,9 @@ const servicesApi = {
             return await $api.post('/service', body);
         } catch (error) {
             if (error.response) {
-                alert(`Failed to receive users: ${error.response.data.message}`);
+                alert(`Failed to create service: ${error.response.data.message}`);
             } else {
-                alert(`Failed to receive users: ${error.message || error}`);
+                alert(`Failed to create service: ${error.message || error}`);
             }
         }
     },
@@ -42,9 +42,9 @@ const servicesApi = {
             return await $api.patch(`/service/${serviceId}`, body);
         } catch (error) {
             if (error.response) {
-                alert(`Failed to receive users: ${error.response.data.message}`);
+                alert(`Failed to update service: ${error.response.data.message}`);
             } else {
-                alert(`Failed to receive users: ${error.message || error}`);
+                alert(`Failed to update service: ${error.message || error}`);
             }
         }
     },
@@ -54,9 +54,9 @@ const servicesApi = {
             await $api.delete(`/service/${serviceId}`);
         } catch (error) {
             if (error.response) {
-                alert(`Failed to receive users: ${error.response.data.message}`);
+                alert(`Failed to delete service: ${error.response.data.message}`);
             } else {
-                alert(`Failed to receive users: ${error.message || error}`);
+                alert(`Failed to delete service: ${error.message || error}`);
             }
         }
     }

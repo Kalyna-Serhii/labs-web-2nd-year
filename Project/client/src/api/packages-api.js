@@ -6,9 +6,9 @@ const packagesApi = {
             return await $api.get('/packages');
         } catch (error) {
             if (error.response) {
-                alert(`Failed to receive users: ${error.response.data.message}`);
+                alert(`Failed to receive packages: ${error.response.data.message}`);
             } else {
-                alert(`Failed to receive users: ${error.message || error}`);
+                alert(`Failed to receive packages: ${error.message || error}`);
             }
         }
     },
@@ -18,9 +18,9 @@ const packagesApi = {
             return await $api.get(`/package/${packageId}`);
         } catch (error) {
             if (error.response) {
-                alert(`Failed to receive users: ${error.response.data.message}`);
+                alert(`Failed to receive package: ${error.response.data.message}`);
             } else {
-                alert(`Failed to receive users: ${error.message || error}`);
+                alert(`Failed to receive package: ${error.message || error}`);
             }
         }
     },
@@ -30,9 +30,9 @@ const packagesApi = {
             return await $api.post('/package', body);
         } catch (error) {
             if (error.response) {
-                alert(`Failed to receive users: ${error.response.data.message}`);
+                alert(`Failed to create package: ${error.response.data.message}`);
             } else {
-                alert(`Failed to receive users: ${error.message || error}`);
+                alert(`Failed to create package: ${error.message || error}`);
             }
         }
     },
@@ -42,9 +42,9 @@ const packagesApi = {
             return await $api.patch(`/package/${packageId}`, body);
         } catch (error) {
             if (error.response) {
-                alert(`Failed to receive users: ${error.response.data.message}`);
+                alert(`Failed to update package: ${error.response.data.message}`);
             } else {
-                alert(`Failed to receive users: ${error.message || error}`);
+                alert(`Failed to update package: ${error.message || error}`);
             }
         }
     },
@@ -54,9 +54,9 @@ const packagesApi = {
             await $api.delete(`/package/${packageId}`);
         } catch (error) {
             if (error.response) {
-                alert(`Failed to receive users: ${error.response.data.message}`);
+                alert(`Failed to delete package: ${error.response.data.message}`);
             } else {
-                alert(`Failed to receive users: ${error.message || error}`);
+                alert(`Failed to delete package: ${error.message || error}`);
             }
         }
     },

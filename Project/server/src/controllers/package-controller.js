@@ -21,8 +21,8 @@ const packageController = {
 
     async createPackage(req, res, next) {
         try {
-            const newPackage = await packageService.createPackage(req.body);
-            return res.status(201).json(newPackage);
+            await packageService.createPackage(req.body);
+            return res.status(201).send();
         } catch (error) {
             next(error);
         }
@@ -30,8 +30,8 @@ const packageController = {
 
     async updatePackage(req, res, next) {
         try {
-            const updatedPackage = await packageService.updatePackage(req.params.id, req.body);
-            return res.status(200).json(updatedPackage);
+            await packageService.updatePackage(req.params.id, req.body);
+            return res.status(200).send();
         } catch (error) {
             next(error);
         }

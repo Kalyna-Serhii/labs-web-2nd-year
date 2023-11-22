@@ -51,9 +51,9 @@ export default {
       const response = await api.services.getServices();
       this.services = response;
     },
-    async sortServicesById(services) {
+    async sortServicesByPrice(services) {
       if(services) {
-        this.services = services.sort((a, b) => a.id - b.id);
+        this.services = services.sort((a, b) => a.price - b.price);
       }
     },
     async toCreatePage() {
@@ -69,7 +69,7 @@ export default {
   },
   async mounted() {
     await this.getServices();
-    await this.sortServicesById(this.services);
+    await this.sortServicesByPrice(this.services);
   }
 }
 </script>

@@ -20,8 +20,8 @@
               </div>
               <div class="col-3">
                 <label class="form-label">Phone</label>
-                <input v-model="phone" ref="phone" class="form-control" name="phone"
-                       type="tel" id="phone" required/>
+                <input ref="phone" class="form-control" name="phone"
+                       type="tel" id="phone" :value="user.phone" required/>
               </div>
               <div class="col-3">
                 <label class="form-label">Email</label>
@@ -60,7 +60,6 @@ export default {
   data() {
     return {
       user: [],
-      phone: '',
     }
   },
   methods: {
@@ -69,7 +68,6 @@ export default {
     },
     async getUserById(userId) {
       this.user = await api.users.getUserById(userId);
-      this.phone = this.user.phone;
     },
     async submitForm() {
       const form = this.$refs.form;

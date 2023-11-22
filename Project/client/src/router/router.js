@@ -11,6 +11,7 @@ import EditUserPage from "@/pages/EditUserPage.vue";
 import ServicesPage from "@/pages/ServicesPage.vue";
 import CreateServicePage from "@/pages/CreateServicePage.vue";
 import EditServicePage from "@/pages/EditServicePage.vue";
+import PackagesPage from "@/pages/PackagesPage.vue";
 
 const routes = [
     {
@@ -99,6 +100,13 @@ const routes = [
         component: EditServicePage,
         meta: {
             title: 'Edit service'
+        }
+    },
+    {
+        path: '/packages',
+        component: PackagesPage,
+        meta: {
+            title: 'Packages'
         }
     },
 ]

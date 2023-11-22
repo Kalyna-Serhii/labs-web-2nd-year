@@ -1036,3 +1036,67 @@ label {
 .tableButton {
     margin-right: 10px;
 }
+
+#packages {
+    background-color: #FBFBFB;
+}
+
+#packages ul.packages {
+    list-style: none;
+    margin-top: 20px;
+    border: 1px solid #D0D0D0;
+    padding: 15px;
+    text-align: center;
+}
+
+#packages ul.packages li {
+    display: block;
+    padding: 10px;
+}
+
+#packages ul.packages li.plan-header {
+    background: #FFFFFF;
+    margin: -15px -15px 10px;
+    padding: 15px 15px 30px;
+    border-bottom: 2px solid #1DC2F8;
+}
+
+#packages ul.packages li.plan-header .price-duration {
+    position: relative;
+    margin-top: 15px;
+    top: -10px;
+    display: inline-block;
+    width: 100%;
+    height: 116px;
+    color: #000;
+}
+
+#packages ul.packages li.plan-header .price-duration > span {
+    display: block;
+    line-height: 30px;
+}
+
+#packages ul.packages li.plan-header .price-duration > span.price {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 35px;
+    color: #040404;
+}
+
+#packages ul.packages li.plan-header .price-duration > span.duration {
+    margin-top: 5px;
+    color: #222;
+}
+
+#packages ul.packages li.plan-header .plan-name {
+    margin-top: 10px;
+    font-size: 24px;
+    color: #272727;
+    font-weight: bold;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+#packages ul {
+    transition: all 0.4s ease-in-out;
+}

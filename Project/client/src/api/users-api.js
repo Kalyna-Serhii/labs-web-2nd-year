@@ -18,9 +18,9 @@ const usersApi = {
             return await $api.get(`/user/${userId}`);
         } catch (error) {
             if (error.response) {
-                alert(`Failed to receive users: ${error.response.data.message}`);
+                alert(`Failed to receive user: ${error.response.data.message}`);
             } else {
-                alert(`Failed to receive users: ${error.message || error}`);
+                alert(`Failed to receive user: ${error.message || error}`);
             }
         }
     },
@@ -30,9 +30,9 @@ const usersApi = {
             return await $api.post('/user', body);
         } catch (error) {
             if (error.response) {
-                alert(`Failed to receive users: ${error.response.data.message}`);
+                alert(`Failed to create user: ${error.response.data.message}`);
             } else {
-                alert(`Failed to receive users: ${error.message || error}`);
+                alert(`Failed to create user: ${error.message || error}`);
             }
         }
     },
@@ -42,9 +42,9 @@ const usersApi = {
             return await $api.patch(`/user/${userId}`, body);
         } catch (error) {
             if (error.response) {
-                alert(`Failed to receive users: ${error.response.data.message}`);
+                alert(`Failed to update user: ${error.response.data.message}`);
             } else {
-                alert(`Failed to receive users: ${error.message || error}`);
+                alert(`Failed to update user: ${error.message || error}`);
             }
         }
     },
@@ -54,9 +54,9 @@ const usersApi = {
             await $api.delete(`/user/${userId}`);
         } catch (error) {
             if (error.response) {
-                alert(`Failed to receive users: ${error.response.data.message}`);
+                alert(`Failed to delete user: ${error.response.data.message}`);
             } else {
-                alert(`Failed to receive users: ${error.message || error}`);
+                alert(`Failed to delete user: ${error.message || error}`);
             }
         }
     },
