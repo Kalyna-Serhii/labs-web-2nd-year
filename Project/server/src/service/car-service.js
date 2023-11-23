@@ -1,5 +1,6 @@
 import ApiError from '../exceptions/api-error.js';
 import carModel from "../models/car-model.js";
+import dealService from "./deal-service.js";
 
 const CarService = {
     async getCars() {
@@ -17,6 +18,12 @@ const CarService = {
 
     async createCar(body) {
         const {brand, model, year, price, amount} = body;
+        const carAlreadyExists = await carModel.findOne({where: {brand, model, year, price}});
+        if (carAlreadyExists) {
+            carAlreadyExists.amount += amount;
+            await carAlreadyExists.save();
+            return carAlreadyExists;
+        }
         const newCar = await carModel.create({brand, model, year, price, amount});
         return newCar;
     },
@@ -43,6 +50,22 @@ const CarService = {
             throw ApiError.BadRequest('Car not found');
         }
         await car.destroy();
+    },
+
+    async buyCar(token, body) {
+        const {carId} = body;
+        const car = await carModel.findOne({where: {id: carId}});
+        if (!car) {
+            throw ApiError.BadRequest('Car not found');
+        }
+        if(car.amount === 0) {
+            throw ApiError.BadRequest('Car is out of stock');
+        }
+        const price = car.price;
+        const deal = dealService.createDeal({token, carId, price});
+        car.amount -= 1;
+        await car.save();
+        return deal;
     },
 };
 

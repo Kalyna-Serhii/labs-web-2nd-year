@@ -2,6 +2,7 @@ import ApiError from '../exceptions/api-error.js';
 import packageModel from '../models/package-model.js';
 import serviceModel from "../models/service-model.js";
 import servicePackageModel from "../models/servicePackage-model.js";
+import dealService from "./deal-service.js";
 
 const PackageService = {
     async getPackages() {
@@ -54,8 +55,8 @@ const PackageService = {
     },
 
     async updatePackage(id, body) {
-        const oldPackage = await packageModel.findOne({where: {id}});
-        if (!oldPackage) {
+        const Package = await packageModel.findOne({where: {id}});
+        if (!Package) {
             throw ApiError.BadRequest('Package not found');
         }
         const {name, description, price, idServices} = body;
@@ -63,7 +64,7 @@ const PackageService = {
         updatedFields.name = name;
         updatedFields.description = description;
         updatedFields.price = price;
-        const updatedPackage = await oldPackage.update(updatedFields);
+        const updatedPackage = await Package.update(updatedFields);
         const services = await serviceModel.findAll({where: {id: idServices}});
         await updatedPackage.setServices(services);
         const resultPackage = {
@@ -79,6 +80,17 @@ const PackageService = {
             throw ApiError.BadRequest('Package not found');
         }
         await Package.destroy();
+    },
+
+    async buyPackage(token, body) {
+        const {packageId} = body;
+        const Package = await packageModel.findOne({where: {id: packageId}});
+        if (!Package) {
+            throw ApiError.BadRequest('Package not found');
+        }
+        const price = Package.price;
+        const deal = dealService.createDeal({token, packageId, price});
+        return deal;
     },
 };
 

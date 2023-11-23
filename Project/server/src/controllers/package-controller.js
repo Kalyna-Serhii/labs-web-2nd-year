@@ -45,6 +45,15 @@ const packageController = {
             next(error);
         }
     },
+
+    async buyPackage(req, res, next) {
+        try {
+            await packageService.buyPackage(req.cookies.accessToken, req.body);
+            return res.status(201).send();
+        } catch (error) {
+            next(error);
+        }
+    },
 };
 
 export default packageController;

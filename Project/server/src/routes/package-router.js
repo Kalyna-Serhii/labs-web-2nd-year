@@ -9,5 +9,6 @@ router.get('/package/:id', authMiddleware.hasRole(), packageController.getPackag
 router.post('/package', authMiddleware.hasRole(), packageController.createPackage);
 router.patch('/package/:id', authMiddleware.hasRole(), packageController.updatePackage);
 router.delete('/package/:id', authMiddleware.hasRole(), packageController.deletePackage);
+router.post('/package/buy', authMiddleware.onlyAuthorized, packageController.buyPackage);
 
 export default router;

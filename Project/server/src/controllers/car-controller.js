@@ -45,6 +45,15 @@ const carController = {
             next(error);
         }
     },
+
+    async buyCar(req, res, next) {
+        try {
+            await carService.buyCar(req.cookies.accessToken, req.body);
+            return res.status(201).send();
+        } catch (error) {
+            next(error);
+        }
+    },
 };
 
 export default carController;
