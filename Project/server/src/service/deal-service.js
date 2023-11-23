@@ -19,13 +19,22 @@ const DealService = {
         return deal;
     },
 
-    async createDeal(body) {
-        const {token, carId, packageId, price} = body;
+    async createDeal(token, body) {
+        const {price} = body;
+        let {userId, carId, packageId} = body;
+        if(carId === '') {
+            carId = null;
+        }
+        if(packageId === '') {
+            packageId = null;
+        }
         if(!carId && !packageId) {
             throw ApiError.BadRequest('Car id or package id are required');
         }
-        const userData = tokenService.validateAccessToken(token);
-        const userId = userData.id;
+        if (!userId) {
+            const userData = tokenService.validateAccessToken(token);
+            userId = userData.id;
+        }
         const today = new Date();
         const date = today.toISOString().split('T')[0];
         const deal = await dealModel.create({userId, carId, packageId, price, date});
@@ -37,18 +46,29 @@ const DealService = {
         if (!deal) {
             throw ApiError.BadRequest('Deal not found');
         }
-        const {userId, carId, packageId, price, date} = body;
+        const {userId, price, date} = body;
+        let {carId, packageId} = body;
+        if(carId === '') {
+            carId = null;
+        }
+        if(packageId === '') {
+            packageId = null;
+        }
         const user = await userModel.findOne({where: {id: userId}});
         if (!user) {
             throw ApiError.BadRequest('User not found');
         }
-        const car = await carModel.findOne({where: {id: carId}});
-        if (!car) {
-            throw ApiError.BadRequest('Car not found');
+        if(carId) {
+            const car = await carModel.findOne({where: {id: carId}});
+            if (!car) {
+                throw ApiError.BadRequest('Car not found');
+            }
         }
-        const Package = await packageModel.findOne({where: {id: packageId}});
-        if (!Package) {
-            throw ApiError.BadRequest('Package not found');
+        if(packageId) {
+            const Package = await packageModel.findOne({where: {id: packageId}});
+            if (!Package) {
+                throw ApiError.BadRequest('Package not found');
+            }
         }
         const updatedFields = {};
         updatedFields.userId = userId;

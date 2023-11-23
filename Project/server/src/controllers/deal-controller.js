@@ -21,7 +21,7 @@ const dealController = {
 
     async createDeal(req, res, next) {
         try {
-            await dealService.createDeal(req.body);
+            await dealService.createDeal(req.cookies.accessToken, req.body);
             return res.status(201).send();
         } catch (error) {
             next(error);

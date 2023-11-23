@@ -1100,3 +1100,12 @@ label {
 #packages ul {
     transition: all 0.4s ease-in-out;
 }
+
+.link-style {
+    color: blue;
+    cursor: pointer;
+}
+
+.link-style:hover {
+    text-decoration: underline;
+}

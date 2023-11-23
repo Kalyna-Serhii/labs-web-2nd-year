@@ -8,6 +8,9 @@ import LogoutPage from "@/pages/LogoutPage.vue";
 import UsersPage from "@/pages/UsersPage.vue";
 import CreateUserPage from "@/pages/CreateUserPage.vue";
 import EditUserPage from "@/pages/EditUserPage.vue";
+import DealsPage from "@/pages/DealsPage.vue";
+import CreateDealPage from "@/pages/CreateDealPage.vue";
+import EditDealPage from "@/pages/EditDealPage.vue";
 import CarsPage from "@/pages/CarsPage.vue";
 import CreateCarPage from "@/pages/CreateCarPage.vue";
 import SellCarPage from "@/pages/SellCarPage.vue";
@@ -85,6 +88,27 @@ const routes = [
         component: EditUserPage,
         meta: {
             title: 'Edit user'
+        }
+    },
+    {
+        path: '/deals',
+        component: DealsPage,
+        meta: {
+            title: 'Deals'
+        }
+    },
+    {
+        path: '/deals/new',
+        component: CreateDealPage,
+        meta: {
+            title: 'Create deal'
+        }
+    },
+    {
+        path: '/deal/:dealId',
+        component: EditDealPage,
+        meta: {
+            title: 'Edit deal'
         }
     },
     {
