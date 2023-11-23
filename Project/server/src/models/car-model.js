@@ -27,7 +27,7 @@ const CarModel = sequelize.define(
         },
         amount: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            defaultValue: 1,
         },
     },
     {

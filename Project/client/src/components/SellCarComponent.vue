@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h2>Create car</h2>
+    <h2>Sell car</h2>
     <div class="container">
       <div>
         <div>
@@ -21,10 +21,6 @@
               <div class="col-3">
                 <label class="form-label">Price</label>
                 <input class="form-control" name="price" type="number" required />
-              </div>
-              <div class="col-3">
-                <label class="form-label">Amount</label>
-                <input class="form-control" name="amount" type="number" />
               </div>
               <div class="col-6">
                 <label class="form-label">Control</label>
@@ -51,7 +47,7 @@ export default {
       const formBody = getFormBody(form);
       const response = await api.cars.createCar(formBody);
       if(response && response.status === 201) {
-        this.$router.push('/cars');
+        this.$router.push('/');
       }
     },
   },

@@ -10,6 +10,7 @@ import CreateUserPage from "@/pages/CreateUserPage.vue";
 import EditUserPage from "@/pages/EditUserPage.vue";
 import CarsPage from "@/pages/CarsPage.vue";
 import CreateCarPage from "@/pages/CreateCarPage.vue";
+import SellCarPage from "@/pages/SellCarPage.vue";
 import EditCarPage from "@/pages/EditCarPage.vue";
 import ServicesPage from "@/pages/ServicesPage.vue";
 import CreateServicePage from "@/pages/CreateServicePage.vue";
@@ -140,6 +141,13 @@ const routes = [
         component: CreateCarPage,
         meta: {
             title: 'Create car'
+        }
+    },
+    {
+        path: '/cars/sell',
+        component: SellCarPage,
+        meta: {
+            title: 'Sell car'
         }
     },
     {
