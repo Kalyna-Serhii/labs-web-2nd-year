@@ -63,6 +63,7 @@ export default {
     async deleteCar(id) {
       await api.cars.deleteCar(id);
       await this.getCars();
+      await this.sortCarsByPrice(this.cars);
     },
   },
   async mounted() {

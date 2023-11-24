@@ -10,7 +10,7 @@
       <div class="container">
         <button @click="toCreatePage()" class="btn btn-primary">Sell my car</button>
         <div v-for="(car, index) in cars" :key="index">
-          <div class="col-md-3 col-sm-6 col-xs-12">
+          <div v-if="car.amount > 0" class="col-md-3 col-sm-6 col-xs-12">
             <div class="frame">
               <ul class="packages">
                 <li class="plan-header">
@@ -23,7 +23,7 @@
                   <div class="duration">{{ car.year }}</div>
                   <div class="duration">left {{ car.amount }}</div>
                 </li>
-                <li class="plan-purchase"><a class="btn btn-primary" href="#">Get It Now!</a></li>
+                <li class="plan-purchase"><button @click="buyCar(car.id)" class="btn btn-primary">Buy It Now!</button></li>
               </ul>
             </div>
           </div>
@@ -54,6 +54,17 @@ export default {
     },
     async toCreatePage() {
       this.$router.push('/cars/sell');
+    },
+    async buyCar(id) {
+      const formBody = {
+        carId: id,
+      };
+      const response = await api.cars.buyCar(formBody);
+      if (response && response.status === 201) {
+        alert('Car bought successfully');
+      }
+      await this.getCars();
+      await this.sortCarsByPrice(this.cars);
     },
   },
   async mounted() {

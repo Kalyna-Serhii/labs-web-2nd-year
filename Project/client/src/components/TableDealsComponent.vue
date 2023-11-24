@@ -71,6 +71,7 @@ export default {
     async deleteDeal(id) {
       await api.deals.deleteDeal(id);
       await this.getDeals();
+      await this.sortDealsById(this.deals);
     },
     async toUserPage(id) {
       this.$router.push(`/user/${id}`);

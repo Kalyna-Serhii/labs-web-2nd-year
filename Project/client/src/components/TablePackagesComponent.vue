@@ -61,6 +61,7 @@ export default {
     async deletePackage(id) {
       await api.packages.deletePackage(id);
       await this.getPackages();
+      await this.sortPackagesByPrice(this.packages);
     },
   },
   async mounted() {

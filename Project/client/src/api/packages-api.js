@@ -60,6 +60,18 @@ const packagesApi = {
             }
         }
     },
+
+    async buyPackage(body) {
+        try {
+            return await $api.post(`/package/buy`, body);
+        } catch (error) {
+            if (error.response) {
+                alert(`Failed to buy package: ${error.response.data.message}`);
+            } else {
+                alert(`Failed to buy package: ${error.message || error}`);
+            }
+        }
+    }
 };
 
 export default packagesApi;

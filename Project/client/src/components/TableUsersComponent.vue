@@ -68,6 +68,7 @@ export default {
     async deleteUser(id) {
       await api.users.deleteUser(id);
       await this.getUsers();
+      await this.sortUsersById(this.users);
     },
   },
   async mounted() {

@@ -17,7 +17,7 @@ const CarService = {
     },
 
     async createCar(body) {
-        const {brand, model, year, price, amount} = body;
+        const {brand, model, year, price, amount = 1} = body;
         const carAlreadyExists = await carModel.findOne({where: {brand, model, year, price}});
         if (carAlreadyExists) {
             carAlreadyExists.amount += amount;
@@ -62,7 +62,7 @@ const CarService = {
             throw ApiError.BadRequest('Car is out of stock');
         }
         const price = car.price;
-        const deal = dealService.createDeal({token, carId, price});
+        const deal = dealService.createDeal(token, {carId, price});
         car.amount -= 1;
         await car.save();
         return deal;

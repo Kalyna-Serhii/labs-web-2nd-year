@@ -60,6 +60,7 @@ export default {
     async deleteService(id) {
       await api.services.deleteService(id);
       await this.getServices();
+      await this.sortServicesByPrice(this.services);
     },
   },
   async mounted() {

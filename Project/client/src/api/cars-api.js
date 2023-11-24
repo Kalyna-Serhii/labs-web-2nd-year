@@ -59,7 +59,19 @@ const carsApi = {
                 alert(`Failed to delete car: ${error.message || error}`);
             }
         }
-    }
-}
+    },
+
+    async buyCar(body) {
+        try {
+            return await $api.post(`/car/buy`, body);
+        } catch (error) {
+            if (error.response) {
+                alert(`Failed to buy car: ${error.response.data.message}`);
+            } else {
+                alert(`Failed to buy car: ${error.message || error}`);
+            }
+        }
+    },
+};
 
 export default carsApi;

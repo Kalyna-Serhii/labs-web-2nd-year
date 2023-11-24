@@ -20,7 +20,7 @@
                   <div class="plan-name">{{ plan.name }}</div>
                 </li>
                 <li v-for="service in plan.services" :key="service"> {{ service.name }} - ${{service.price}}</li>
-                <li class="plan-purchase"><a class="btn btn-primary" href="#">Get It Now!</a></li>
+                <li class="plan-purchase"><button @click="buyPackage(plan.id)" class="btn btn-primary">Get It Now!</button></li>
               </ul>
             </div>
           </div>
@@ -43,9 +43,24 @@ export default {
       const response = await api.packages.getPackages();
       this.pricingList = response;
     },
+    async sortPricingListByPrice(pricingList) {
+      if(pricingList) {
+        this.pricingList = pricingList.sort((a, b) => a.price - b.price);
+      }
+    },
+    async buyPackage(id) {
+      const formBody = {
+        packageId: id,
+      };
+      const response = await api.packages.buyPackage(formBody);
+      if (response && response.status === 201) {
+        alert('Package bought successfully');
+      }
+    },
   },
   async mounted() {
     await this.getPricingList();
+    await this.sortPricingListByPrice(this.pricingList);
   },
 };
 </script>

@@ -89,7 +89,7 @@ const PackageService = {
             throw ApiError.BadRequest('Package not found');
         }
         const price = Package.price;
-        const deal = dealService.createDeal({token, packageId, price});
+        const deal = dealService.createDeal(token, {packageId, price});
         return deal;
     },
 };
