@@ -12,7 +12,12 @@
           <router-link class='navbar-brand' to='/'><img src='@/assets/img/logo.png' alt='logo'></router-link>
         </div>
         <div class='collapse navbar-collapse navbar-right'>
-          <ul v-if="this.accessToken" class='nav navbar-nav'>
+          <ul v-if="this.accessToken && this.isAdmin" class='nav navbar-nav'>
+            <li v-for="(button, index) in buttonsListForAdmin" :key="index">
+              <router-link class='scroll' :to='button.link'> {{ button.name }}</router-link>
+            </li>
+          </ul>
+          <ul v-else-if="this.accessToken && !this.isAdmin" class='nav navbar-nav'>
             <li v-for="(button, index) in buttonsListForUser" :key="index">
               <router-link class='scroll' :to='button.link'> {{ button.name }}</router-link>
             </li>
@@ -32,68 +37,10 @@
 export default {
   data() {
     return {
-      buttonsListForUser: [
-        {
-          link: '/',
-          name: 'Home',
-        },
-        {
-          link: '/users',
-          name: 'Users',
-        },
-        {
-          link: '/',
-          name: 'About',
-        },
-        {
-          link: '/',
-          name: 'Table',
-        },
-        {
-          link: '/',
-          name: 'Pricing',
-        },
-        {
-          link: '/contacts',
-          name: 'Contacts',
-        },
-        {
-          link: '/FAQ',
-          name: 'FAQ',
-        },
-        {
-          link: '/logout',
-          name: 'Logout',
-        },
-      ],
       buttonsListForGuest: [
         {
-          link: '/',
-          name: 'Home',
-        },
-        {
-          link: '/users',
-          name: 'Users',
-        },
-        {
-          link: '/',
-          name: 'About',
-        },
-        {
-          link: '/',
-          name: 'Table',
-        },
-        {
-          link: '/',
-          name: 'Pricing',
-        },
-        {
-          link: '/contacts',
-          name: 'Contacts',
-        },
-        {
-          link: '/FAQ',
-          name: 'FAQ',
+          link: '/reviews',
+          name: 'Reviews',
         },
         {
           link: '/login',
@@ -104,7 +51,52 @@ export default {
           name: 'Register',
         },
       ],
+      buttonsListForUser: [
+        {
+          link: '/reviews',
+          name: 'Reviews',
+        },
+        {
+          link: '/logout',
+          name: 'Logout',
+        },
+      ],
+      buttonsListForAdmin: [
+        {
+          link: '/',
+          name: 'Home',
+        },
+        {
+          link: '/users',
+          name: 'Users',
+        },
+        {
+          link: '/deals',
+          name: 'Deals',
+        },
+        {
+          link: '/cars',
+          name: 'Cars',
+        },
+        {
+          link: '/packages',
+          name: 'Packages',
+        },
+        {
+          link: '/services',
+          name: 'Services',
+        },
+        {
+          link: '/reviews',
+          name: 'Reviews',
+        },
+        {
+          link: '/logout',
+          name: 'Logout',
+        },
+      ],
       accessToken: '',
+      isAdmin: false,
     }
   },
   methods: {
@@ -114,9 +106,9 @@ export default {
         const accessTokenCookie = decodeURIComponent(cookies).split(';').find(cookie => cookie.trim().startsWith('accessToken='));
         const accessTokenData = accessTokenCookie ? accessTokenCookie.split('=')[1] : null;
         const accessToken = accessTokenData.split('.')[1];
-        if(accessToken) {
-          const tokenIsValid =  this.checkToken(accessToken);
-          if(tokenIsValid) {
+        if (accessToken) {
+          const tokenIsValid = this.checkToken(accessToken);
+          if (tokenIsValid) {
             this.accessToken = accessToken;
           } else {
             this.accessToken = '';
@@ -130,13 +122,21 @@ export default {
       if (token) {
         const tokenData = JSON.parse(atob(token));
         const currentTime = Math.floor(Date.now() / 1000);
-        return  tokenData.exp > currentTime;
+        return tokenData.exp > currentTime;
+      }
+    },
+    checkRole(token) {
+      if (token) {
+        const tokenData = JSON.parse(atob(token));
+        if (tokenData.role === 'admin') {
+          this.isAdmin = true;
+        }
       }
     },
   },
   mounted() {
     this.setAccessToken();
-    this.checkToken();
+    this.checkRole(this.accessToken);
   }
 }
 </script>
