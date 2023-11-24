@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ContactsComponent from "@/components/ContactsComponent.vue";
+import ContactsComponent from "@/components/ReviewComponent.vue";
 import HeaderSection from "@/components/HeaderSection.vue";
 import FooterSection from "@/components/FooterSection.vue";
 

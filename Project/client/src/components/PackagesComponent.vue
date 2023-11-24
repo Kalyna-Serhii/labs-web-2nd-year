@@ -7,7 +7,6 @@
           massa <br> semper aliquam quis mattis quam.</p>
       </div>
 
-      <div>
         <div v-for="(plan, index) in pricingList" :key="index">
           <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="frame">
@@ -26,7 +25,6 @@
           </div>
         </div>
       </div>
-    </div>
   </section>
 </template>
 
