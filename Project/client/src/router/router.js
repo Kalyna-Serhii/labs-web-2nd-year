@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "@/pages/HomePage.vue";
-import ContactsPage from "@/pages/ReviewPage.vue";
+import ReviewPage from "@/pages/ReviewPage.vue";
 import FAQPage from "@/pages/FAQPage.vue";
 import RegisterPage from "@/pages/RegisterPage.vue";
 import LoginPage from "@/pages/LoginPage.vue";
@@ -35,8 +35,8 @@ const routes = [
         }
     },
     {
-        path: '/contacts',
-        component: ContactsPage,
+        path: '/reviews',
+        component: ReviewPage,
         meta: {
             title: 'Contacts'
         }

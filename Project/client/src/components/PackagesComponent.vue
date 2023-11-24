@@ -7,29 +7,32 @@
           massa <br> semper aliquam quis mattis quam.</p>
       </div>
 
-        <div v-for="(plan, index) in pricingList" :key="index">
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="frame">
-              <ul class="pricing">
-                <li class="plan-header">
-                  <div class="price-duration">
-                    <span class="price">${{ plan.price }}</span>
-                    <span class="duration">{{plan.description}}</span>
-                  </div>
-                  <div class="plan-name">{{ plan.name }}</div>
-                </li>
-                <li v-for="service in plan.services" :key="service"> {{ service.name }} - ${{service.price}}</li>
-                <li class="plan-purchase"><button @click="buyPackage(plan.id)" class="btn btn-primary">Get It Now!</button></li>
-              </ul>
-            </div>
+      <div v-for="(plan, index) in pricingList" :key="index">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="frame">
+            <ul class="pricing">
+              <li class="plan-header">
+                <div class="price-duration">
+                  <span class="price">${{ plan.price }}</span>
+                  <span class="duration">{{ plan.description }}</span>
+                </div>
+                <div class="plan-name">{{ plan.name }}</div>
+              </li>
+              <li v-for="service in plan.services" :key="service"> {{ service.name }} - ${{ service.price }}</li>
+              <li class="plan-purchase">
+                <button @click="buyPackage(plan.id)" class="btn btn-primary">Get It Now!</button>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
+    </div>
   </section>
 </template>
 
 <script>
 import api from '@/api';
+
 export default {
   data() {
     return {
@@ -42,7 +45,7 @@ export default {
       this.pricingList = response;
     },
     async sortPricingListByPrice(pricingList) {
-      if(pricingList) {
+      if (pricingList) {
         this.pricingList = pricingList.sort((a, b) => a.price - b.price);
       }
     },
