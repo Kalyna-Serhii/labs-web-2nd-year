@@ -6,24 +6,32 @@
         <form ref="form" @submit.prevent="submitForm">
           <div class="row border mb-3">
             <div class="col-3">
-              <label class="form-label">ID</label>
-              <input class="form-control" name="id" type="number" ref="id" :value="deal.id" />
+              <label class="form-label">User</label>
+              <select class="form-control" name="userId" v-model="deal.userId">
+                <option v-for="(user, index) in users" :key="index" :value="user.id">
+                  {{ user.id }} {{ user.name }}
+                </option>
+              </select>
             </div>
             <div class="col-3">
-              <label class="form-label">User id</label>
-              <input class="form-control" name="userId" type="number" :value="deal.userId" required />
+              <label class="form-label">Car</label>
+              <select class="form-control" name="carId" v-model="deal.carId">
+                <option v-for="(car, index) in cars" :key="index" :value="car.id">
+                  {{ car.id }} {{ car.brand }} {{ car.model }}
+                </option>
+              </select>
             </div>
             <div class="col-3">
-              <label class="form-label">Car id</label>
-              <input class="form-control" name="carId" type="number" :value="deal.carId" />
-            </div>
-            <div class="col-3">
-              <label class="form-label">Package id</label>
-              <input class="form-control" name="packageId" type="number" :value="deal.packageId" />
+              <label class="form-label">Package</label>
+              <select class="form-control" name="packageId" v-model="deal.packageId">
+                <option v-for="(Package, index) in packages" :key="index" :value="Package.id">
+                  {{ Package.id }} {{ Package.name }}
+                </option>
+              </select>
             </div>
             <div class="col-3">
               <label class="form-label">Price</label>
-              <input class="form-control" name="price" type="number" :value="deal.price" required />
+              <input class="form-control" name="price" type="number" :value="deal.price" min="1" required />
             </div>
             <div class="col-3">
               <label class="form-label">Date</label>
@@ -56,6 +64,9 @@ export default {
   data() {
     return {
       deal: [],
+      users: [],
+      cars: [],
+      packages: [],
     }
   },
   methods: {
@@ -69,7 +80,6 @@ export default {
       const form = this.$refs.form;
       const dealId = this.deal.id;
       const formBody = getFormBody(form);
-      console.log(formBody)
       const response = await api.deals.updateDeal(dealId, formBody);
       if (response && response.status === 200) {
         this.$router.push('/deals');
@@ -81,12 +91,22 @@ export default {
         this.$router.push('/deals');
       }
     },
+    async getUsers() {
+      this.users = await api.users.getUsers();
+    },
+    async getCars() {
+      this.cars = await api.cars.getCars();
+    },
+    async getPackages() {
+      this.packages = await api.packages.getPackages();
+    },
   },
   async mounted() {
-    const id = this.$refs.id;
-    id.readOnly = true;
     const dealId = this.getDealIdFromRoute();
     await this.getDealById(dealId);
+    await this.getUsers();
+    await this.getCars();
+    await this.getPackages();
   },
 }
 </script>

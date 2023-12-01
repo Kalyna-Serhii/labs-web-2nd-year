@@ -16,7 +16,7 @@
               </div>
               <div class="col-3">
                 <label class="form-label">Price</label>
-                <input class="form-control" name="price" type="number" required />
+                <input class="form-control" name="price" type="number" min="1" required />
               </div>
               <div class="col-6">
                 <label class="form-label">Control</label>
