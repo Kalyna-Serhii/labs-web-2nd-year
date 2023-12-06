@@ -1,4 +1,4 @@
-import packageService from "../service/package-service.js";
+import packageService from "../services/package-service.js";
 
 const packageController = {
     async getPackages(req, res, next) {

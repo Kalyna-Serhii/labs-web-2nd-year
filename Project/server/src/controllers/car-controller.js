@@ -1,4 +1,4 @@
-import carService from "../service/car-service.js";
+import carService from "../services/car-service.js";
 
 const carController = {
     async getCars(req, res, next) {

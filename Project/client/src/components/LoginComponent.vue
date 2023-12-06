@@ -51,9 +51,22 @@ export default {
       const formBody = getFormBody(form);
       const response = await api.auth.login(formBody);
       if (response && response.status === 204) {
-        this.$router.push('/');
+        const cookies = document.cookie;
+        if (cookies) {
+          const accessTokenCookie = decodeURIComponent(cookies).split(';').find(cookie => cookie.trim().startsWith('accessToken='));
+          const accessTokenData = accessTokenCookie ? accessTokenCookie.split('=')[1] : null;
+          const accessToken = accessTokenData.split('.')[1];
+          if (accessToken) {
+            localStorage.setItem('isAuth', true);
+            const tokenData = JSON.parse(atob(accessToken));
+            if (tokenData.role === 'admin') {
+              localStorage.setItem('isAdmin', true);
+            }
+            this.$router.push('/');
+          }
+        }
       }
-    },
+    }
   },
   mounted() {
     initInputMask(this.$refs.phone);

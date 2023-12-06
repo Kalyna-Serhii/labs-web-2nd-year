@@ -9,6 +9,8 @@ export default {
     async submitRequest() {
       const response = await api.auth.logout();
       if(response.status === 204) {
+        localStorage.removeItem('isAuth');
+        localStorage.removeItem('isAdmin');
         this.$router.push('/');
       }
     }

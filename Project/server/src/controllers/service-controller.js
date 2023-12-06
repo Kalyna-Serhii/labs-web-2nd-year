@@ -1,4 +1,4 @@
-import serviceService from "../service/service-service.js";
+import serviceService from "../services/service-service.js";
 
 const serviceController = {
     async getServices(req, res, next) {
