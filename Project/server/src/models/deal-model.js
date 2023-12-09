@@ -1,4 +1,7 @@
 import {DataTypes, sequelize} from '../database/database.config.js';
+import UserModel from './user-model.js';
+import CarModel from './car-model.js';
+import PackageModel from './package-model.js';
 
 const DealModel = sequelize.define(
     'Deal',
@@ -33,5 +36,9 @@ const DealModel = sequelize.define(
         timestamps: false, // відключення генерації полів createdAt і updatedAt
     }
 );
+
+DealModel.belongsTo(UserModel, {foreignKey: 'userId'});
+DealModel.belongsTo(CarModel, {foreignKey: 'carId'});
+DealModel.belongsTo(PackageModel, {foreignKey: 'packageId'});
 
 export default DealModel;
